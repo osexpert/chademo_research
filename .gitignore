@@ -1,0 +1,5 @@
+ApiDocsMd/
+obj/
+bin/
+.vs/
+*.user
