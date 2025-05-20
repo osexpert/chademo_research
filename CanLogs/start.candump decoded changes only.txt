@@ -1,0 +1,39 @@
+Hello, World!
+22:49:58.125771: Msg:100, MinimumChargeCurrent:6, MaxChargeVoltage:435, ChargingRatePercent:240
+22:49:58.135760: Msg:101, MaxChargingTime10Sec:0, MaxChargingTimeMins:0, EstimatedChargingTimeMins:0, BatteryCapacityKwh:0
+22:49:58.145756: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:0, Faults:0, Status:CAR_STATUS_V2X_COMPATIBLE, SocPercent:3
+22:49:58.272127: Msg:108, SupportWeldingDetection=True, AvailableOutputVoltage=500, AvailableOutputCurrent=118, ThresholdVoltage=500
+22:49:58.272342: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=0, RemainingChargeTimeMins=0
+22:49:58.325710: Msg:100, MinimumChargeCurrent:6, MaxChargeVoltage:435, ChargingRatePercent:100
+22:49:58.335713: Msg:101, MaxChargingTime10Sec:0, MaxChargingTimeMins:0, EstimatedChargingTimeMins:0, BatteryCapacityKwh:55
+22:49:58.346747: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:0, Faults:0, Status:CAR_STATUS_CONTACTOR_OPEN, CAR_STATUS_V2X_COMPATIBLE, SocPercent:1
+22:49:58.372649: Msg:108, SupportWeldingDetection=True, AvailableOutputVoltage=500, AvailableOutputCurrent=31, ThresholdVoltage=435
+22:49:58.573847: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=0, RemainingChargeTimeMins=0
+22:49:58.674334: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=0, RemainingChargeTimeMins=0
+22:49:58.774842: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=0, RemainingChargeTimeMins=0
+22:49:58.835727: Msg:101, MaxChargingTime10Sec:0, MaxChargingTimeMins:0, EstimatedChargingTimeMins:0, BatteryCapacityKwh:38,94
+22:49:58.875328: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=0, RemainingChargeTimeMins=0
+22:49:58.975823: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=0, RemainingChargeTimeMins=0
+22:49:59.377804: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=0, RemainingChargeTimeMins=0
+22:49:59.880290: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=0, RemainingChargeTimeMins=0
+22:50:00.145697: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:0, Faults:0, Status:CAR_STATUS_CONTACTOR_OPEN, CAR_STATUS_V2X_COMPATIBLE, SocPercent:72
+22:50:00.583762: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=0, RemainingChargeTimeMins=0
+22:50:00.635709: Msg:101, MaxChargingTime10Sec:255, MaxChargingTimeMins:80, EstimatedChargingTimeMins:0, BatteryCapacityKwh:38,94
+22:50:00.684252: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:00.885235: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:01.086239: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:01.186725: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:01.287219: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:01.387747: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:01.488216: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:01.546743: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:0, Faults:0, Status:CAR_STATUS_READY_TO_CHARGE, CAR_STATUS_CONTACTOR_OPEN, CAR_STATUS_V2X_COMPATIBLE, SocPercent:72
+22:50:01.990712: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:02.091202: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:02.493177: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:02.593680: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:02.794657: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:02.995634: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:03.196640: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:03.297205: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:03.498109: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:03.598622: Msg:109, ChademoRawVersion=2, OutputVoltage=2, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80

@@ -1,0 +1,498 @@
+Hello, World!
+22:49:58.125771: Msg:100, MinimumChargeCurrent:6, MaxChargeVoltage:435, ChargingRatePercent:240
+22:49:58.135760: Msg:101, MaxChargingTime10Sec:0, MaxChargingTimeMins:0, EstimatedChargingTimeMins:0, BatteryCapacityKwh:0
+22:49:58.145756: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:0, Faults:0, Status:CAR_STATUS_V2X_COMPATIBLE, SocPercent:3
+22:49:58.272127: Msg:108, SupportWeldingDetection=True, AvailableOutputVoltage=500, AvailableOutputCurrent=118, ThresholdVoltage=500
+22:49:58.272342: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=0, RemainingChargeTimeMins=0
+22:49:58.325710: Msg:100, MinimumChargeCurrent:6, MaxChargeVoltage:435, ChargingRatePercent:100
+22:49:58.335713: Msg:101, MaxChargingTime10Sec:0, MaxChargingTimeMins:0, EstimatedChargingTimeMins:0, BatteryCapacityKwh:55
+22:49:58.346747: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:0, Faults:0, Status:CAR_STATUS_CONTACTOR_OPEN, CAR_STATUS_V2X_COMPATIBLE, SocPercent:1
+22:49:58.372649: Msg:108, SupportWeldingDetection=True, AvailableOutputVoltage=500, AvailableOutputCurrent=31, ThresholdVoltage=435
+22:49:58.573847: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=0, RemainingChargeTimeMins=0
+22:49:58.674334: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=0, RemainingChargeTimeMins=0
+22:49:58.774842: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=0, RemainingChargeTimeMins=0
+22:49:58.835727: Msg:101, MaxChargingTime10Sec:0, MaxChargingTimeMins:0, EstimatedChargingTimeMins:0, BatteryCapacityKwh:38,94
+22:49:58.875328: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=0, RemainingChargeTimeMins=0
+22:49:58.975823: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=0, RemainingChargeTimeMins=0
+22:49:59.377804: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=0, RemainingChargeTimeMins=0
+22:49:59.880290: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=0, RemainingChargeTimeMins=0
+22:50:00.145697: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:0, Faults:0, Status:CAR_STATUS_CONTACTOR_OPEN, CAR_STATUS_V2X_COMPATIBLE, SocPercent:72
+22:50:00.583762: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=0, RemainingChargeTimeMins=0
+22:50:00.635709: Msg:101, MaxChargingTime10Sec:255, MaxChargingTimeMins:80, EstimatedChargingTimeMins:0, BatteryCapacityKwh:38,94
+22:50:00.684252: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:00.885235: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:01.086239: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:01.186725: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:01.287219: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:01.387747: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:01.488216: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:01.546743: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:0, Faults:0, Status:CAR_STATUS_READY_TO_CHARGE, CAR_STATUS_CONTACTOR_OPEN, CAR_STATUS_V2X_COMPATIBLE, SocPercent:72
+22:50:01.990712: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:02.091202: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:02.493177: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:02.593680: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:02.794657: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:02.995634: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:03.196640: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:03.297205: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:03.498109: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:03.598622: Msg:109, ChademoRawVersion=2, OutputVoltage=2, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:03.699109: Msg:109, ChademoRawVersion=2, OutputVoltage=5, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:03.799612: Msg:109, ChademoRawVersion=2, OutputVoltage=10, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:03.900123: Msg:109, ChademoRawVersion=2, OutputVoltage=15, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:04.000591: Msg:109, ChademoRawVersion=2, OutputVoltage=16, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:04.101095: Msg:109, ChademoRawVersion=2, OutputVoltage=18, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:04.201595: Msg:109, ChademoRawVersion=2, OutputVoltage=21, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:04.302035: Msg:109, ChademoRawVersion=2, OutputVoltage=31, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:04.402532: Msg:109, ChademoRawVersion=2, OutputVoltage=41, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:04.503023: Msg:109, ChademoRawVersion=2, OutputVoltage=53, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:04.603526: Msg:109, ChademoRawVersion=2, OutputVoltage=63, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:04.704016: Msg:109, ChademoRawVersion=2, OutputVoltage=73, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:04.804513: Msg:109, ChademoRawVersion=2, OutputVoltage=84, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:04.905003: Msg:109, ChademoRawVersion=2, OutputVoltage=97, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:05.005506: Msg:109, ChademoRawVersion=2, OutputVoltage=103, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:05.105998: Msg:109, ChademoRawVersion=2, OutputVoltage=117, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:05.206496: Msg:109, ChademoRawVersion=2, OutputVoltage=127, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:05.306990: Msg:109, ChademoRawVersion=2, OutputVoltage=137, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:05.407480: Msg:109, ChademoRawVersion=2, OutputVoltage=150, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:05.507984: Msg:109, ChademoRawVersion=2, OutputVoltage=160, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:05.608473: Msg:109, ChademoRawVersion=2, OutputVoltage=170, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:05.708968: Msg:109, ChademoRawVersion=2, OutputVoltage=180, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:05.809465: Msg:109, ChademoRawVersion=2, OutputVoltage=195, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:05.909957: Msg:109, ChademoRawVersion=2, OutputVoltage=202, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:06.010455: Msg:109, ChademoRawVersion=2, OutputVoltage=232, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:06.110963: Msg:109, ChademoRawVersion=2, OutputVoltage=229, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:06.211455: Msg:109, ChademoRawVersion=2, OutputVoltage=247, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:06.311939: Msg:109, ChademoRawVersion=2, OutputVoltage=246, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:06.412441: Msg:109, ChademoRawVersion=2, OutputVoltage=256, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:06.512934: Msg:109, ChademoRawVersion=2, OutputVoltage=267, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:06.613430: Msg:109, ChademoRawVersion=2, OutputVoltage=279, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:06.713924: Msg:109, ChademoRawVersion=2, OutputVoltage=290, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:06.814418: Msg:109, ChademoRawVersion=2, OutputVoltage=299, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:06.914907: Msg:109, ChademoRawVersion=2, OutputVoltage=310, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:07.015409: Msg:109, ChademoRawVersion=2, OutputVoltage=322, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:07.115901: Msg:109, ChademoRawVersion=2, OutputVoltage=333, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:07.216397: Msg:109, ChademoRawVersion=2, OutputVoltage=343, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:07.316895: Msg:109, ChademoRawVersion=2, OutputVoltage=354, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:07.417391: Msg:109, ChademoRawVersion=2, OutputVoltage=364, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:07.517885: Msg:109, ChademoRawVersion=2, OutputVoltage=375, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:07.618382: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:07.718876: Msg:109, ChademoRawVersion=2, OutputVoltage=397, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:07.819376: Msg:109, ChademoRawVersion=2, OutputVoltage=407, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:07.919864: Msg:109, ChademoRawVersion=2, OutputVoltage=419, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:08.020368: Msg:109, ChademoRawVersion=2, OutputVoltage=430, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:08.120858: Msg:109, ChademoRawVersion=2, OutputVoltage=440, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:08.221355: Msg:109, ChademoRawVersion=2, OutputVoltage=451, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:08.321848: Msg:109, ChademoRawVersion=2, OutputVoltage=463, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:08.422345: Msg:109, ChademoRawVersion=2, OutputVoltage=473, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:08.522837: Msg:109, ChademoRawVersion=2, OutputVoltage=484, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:08.623332: Msg:109, ChademoRawVersion=2, OutputVoltage=492, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:08.723833: Msg:109, ChademoRawVersion=2, OutputVoltage=489, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:08.824332: Msg:109, ChademoRawVersion=2, OutputVoltage=484, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:08.924826: Msg:109, ChademoRawVersion=2, OutputVoltage=483, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:09.025319: Msg:109, ChademoRawVersion=2, OutputVoltage=481, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:09.125814: Msg:109, ChademoRawVersion=2, OutputVoltage=479, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:09.226403: Msg:109, ChademoRawVersion=2, OutputVoltage=476, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:09.427368: Msg:109, ChademoRawVersion=2, OutputVoltage=473, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:09.527872: Msg:109, ChademoRawVersion=2, OutputVoltage=472, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:09.728829: Msg:109, ChademoRawVersion=2, OutputVoltage=470, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:09.746695: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:0, Faults:0, Status:CAR_STATUS_READY_TO_CHARGE, CAR_STATUS_V2X_COMPATIBLE, SocPercent:72
+22:50:09.829371: Msg:109, ChademoRawVersion=2, OutputVoltage=467, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:09.929817: Msg:109, ChademoRawVersion=2, OutputVoltage=466, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:10.130820: Msg:109, ChademoRawVersion=2, OutputVoltage=465, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:10.231301: Msg:109, ChademoRawVersion=2, OutputVoltage=463, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:10.331799: Msg:109, ChademoRawVersion=2, OutputVoltage=461, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:10.532798: Msg:109, ChademoRawVersion=2, OutputVoltage=459, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:10.633298: Msg:109, ChademoRawVersion=2, OutputVoltage=458, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:10.733793: Msg:109, ChademoRawVersion=2, OutputVoltage=457, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:10.834299: Msg:109, ChademoRawVersion=2, OutputVoltage=456, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:10.934783: Msg:109, ChademoRawVersion=2, OutputVoltage=455, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:11.035290: Msg:109, ChademoRawVersion=2, OutputVoltage=453, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:11.135789: Msg:109, ChademoRawVersion=2, OutputVoltage=451, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:11.236265: Msg:109, ChademoRawVersion=2, OutputVoltage=450, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:11.437281: Msg:109, ChademoRawVersion=2, OutputVoltage=448, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:11.446703: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:2, Faults:0, Status:CAR_STATUS_READY_TO_CHARGE, CAR_STATUS_V2X_COMPATIBLE, SocPercent:72
+22:50:11.537780: Msg:109, ChademoRawVersion=2, OutputVoltage=380, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:11.546705: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:4, Faults:0, Status:CAR_STATUS_READY_TO_CHARGE, CAR_STATUS_V2X_COMPATIBLE, SocPercent:72
+22:50:11.638255: Msg:109, ChademoRawVersion=2, OutputVoltage=379, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:11.646687: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:6, Faults:0, Status:CAR_STATUS_READY_TO_CHARGE, CAR_STATUS_V2X_COMPATIBLE, SocPercent:72
+22:50:11.738749: Msg:109, ChademoRawVersion=2, OutputVoltage=380, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:11.746674: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:8, Faults:0, Status:CAR_STATUS_READY_TO_CHARGE, CAR_STATUS_V2X_COMPATIBLE, SocPercent:72
+22:50:11.846649: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:10, Faults:0, Status:CAR_STATUS_READY_TO_CHARGE, CAR_STATUS_V2X_COMPATIBLE, SocPercent:72
+22:50:11.939739: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=29, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:11.946671: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:12, Faults:0, Status:CAR_STATUS_READY_TO_CHARGE, CAR_STATUS_V2X_COMPATIBLE, SocPercent:72
+22:50:12.040230: Msg:109, ChademoRawVersion=2, OutputVoltage=381, OutputCurrent=12, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:12.046654: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:14, Faults:0, Status:CAR_STATUS_READY_TO_CHARGE, CAR_STATUS_V2X_COMPATIBLE, SocPercent:72
+22:50:12.140754: Msg:109, ChademoRawVersion=2, OutputVoltage=381, OutputCurrent=14, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:12.146668: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:16, Faults:0, Status:CAR_STATUS_READY_TO_CHARGE, CAR_STATUS_V2X_COMPATIBLE, SocPercent:72
+22:50:12.241228: Msg:109, ChademoRawVersion=2, OutputVoltage=383, OutputCurrent=16, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:12.246667: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:18, Faults:0, Status:CAR_STATUS_READY_TO_CHARGE, CAR_STATUS_V2X_COMPATIBLE, SocPercent:72
+22:50:12.341724: Msg:109, ChademoRawVersion=2, OutputVoltage=381, OutputCurrent=18, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:12.346664: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:20, Faults:0, Status:CAR_STATUS_READY_TO_CHARGE, CAR_STATUS_V2X_COMPATIBLE, SocPercent:72
+22:50:12.442222: Msg:109, ChademoRawVersion=2, OutputVoltage=383, OutputCurrent=20, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:12.446664: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:22, Faults:0, Status:CAR_STATUS_READY_TO_CHARGE, CAR_STATUS_V2X_COMPATIBLE, SocPercent:72
+22:50:12.542717: Msg:109, ChademoRawVersion=2, OutputVoltage=381, OutputCurrent=22, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=80
+22:50:12.546678: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:24, Faults:0, Status:CAR_STATUS_READY_TO_CHARGE, CAR_STATUS_V2X_COMPATIBLE, SocPercent:72
+22:50:12.643210: Msg:109, ChademoRawVersion=2, OutputVoltage=381, OutputCurrent=23, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:12.646661: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:26, Faults:0, Status:CAR_STATUS_READY_TO_CHARGE, CAR_STATUS_V2X_COMPATIBLE, SocPercent:72
+22:50:12.743705: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=26, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:12.746669: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:28, Faults:0, Status:CAR_STATUS_READY_TO_CHARGE, CAR_STATUS_V2X_COMPATIBLE, SocPercent:72
+22:50:12.844201: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=28, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:12.846660: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:30, Faults:0, Status:CAR_STATUS_READY_TO_CHARGE, CAR_STATUS_V2X_COMPATIBLE, SocPercent:72
+22:50:12.944736: Msg:109, ChademoRawVersion=2, OutputVoltage=383, OutputCurrent=30, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:12.948266: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:31, Faults:0, Status:CAR_STATUS_READY_TO_CHARGE, CAR_STATUS_V2X_COMPATIBLE, SocPercent:72
+22:50:13.045188: Msg:109, ChademoRawVersion=2, OutputVoltage=383, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:13.145685: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:13.447180: Msg:109, ChademoRawVersion=2, OutputVoltage=383, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:13.547670: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:13.849128: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=32, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:13.949651: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:14.351588: Msg:109, ChademoRawVersion=2, OutputVoltage=383, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:14.452077: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:14.552567: Msg:109, ChademoRawVersion=2, OutputVoltage=381, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:14.653062: Msg:109, ChademoRawVersion=2, OutputVoltage=383, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:14.753599: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:14.854051: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:14.954548: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:15.055044: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:15.155537: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:15.457056: Msg:109, ChademoRawVersion=2, OutputVoltage=383, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:15.557524: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:15.658016: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:17.165455: Msg:109, ChademoRawVersion=2, OutputVoltage=383, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:17.265949: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:17.667927: Msg:109, ChademoRawVersion=2, OutputVoltage=383, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:17.768420: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:17.878896: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:17.969414: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:18.069913: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=32, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:18.170404: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:18.672884: Msg:109, ChademoRawVersion=2, OutputVoltage=383, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:18.773378: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:18.974369: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:19.074864: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:19.477108: Msg:109, ChademoRawVersion=2, OutputVoltage=383, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:19.577396: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:19.677908: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:19.878917: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:20.280857: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:20.381367: Msg:109, ChademoRawVersion=2, OutputVoltage=383, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:20.481859: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:20.582366: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:20.783342: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:20.883852: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:21.084852: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:21.285837: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:21.386326: Msg:109, ChademoRawVersion=2, OutputVoltage=383, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:21.486826: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:21.587320: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:21.896825: Msg:109, ChademoRawVersion=2, OutputVoltage=383, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:21.989323: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:22.190274: Msg:109, ChademoRawVersion=2, OutputVoltage=383, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:22.290772: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:22.391268: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:22.491763: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:22.592258: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:23.094740: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:23.195229: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:23.396232: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:23.496745: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:24.200181: Msg:109, ChademoRawVersion=2, OutputVoltage=383, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:24.401130: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:24.501619: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:24.803107: Msg:109, ChademoRawVersion=2, OutputVoltage=383, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:24.903602: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:25.004095: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:25.205093: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:25.305578: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:25.406080: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:25.506574: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:25.707568: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:25.908555: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:26.009052: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:26.411033: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:26.511529: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:26.612025: Msg:109, ChademoRawVersion=2, OutputVoltage=383, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:26.712523: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:26.813017: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:27.114502: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:27.214995: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:27.315492: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:27.415990: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:27.516484: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:27.616979: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:27.918467: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:28.018961: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:28.119460: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:28.621933: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:28.722430: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:29.023916: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:29.124414: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:29.325481: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:29.425955: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:29.526445: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:29.827946: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:30.129426: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:30.229921: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:30.430899: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:30.531409: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:30.631896: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:30.732393: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:30.832881: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:31.234882: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:31.335376: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:31.435867: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:31.536371: Msg:109, ChademoRawVersion=2, OutputVoltage=383, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:31.636878: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:31.737355: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:31.837845: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:31.938337: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:32.139340: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:32.440811: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:32.541314: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:32.641805: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:32.842797: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:32.943295: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:33.144272: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:33.244781: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:33.345264: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:33.445772: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:33.546256: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:33.747260: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:33.847757: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:33.948246: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:34.450726: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:34.551213: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:34.651724: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:34.852741: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:34.953204: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:35.254670: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:35.355183: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:35.656701: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:35.757180: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:36.058653: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:36.159253: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:36.259634: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:36.360151: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:36.561128: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:36.661626: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:36.762119: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=32, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:36.862615: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:36.963115: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:37.264599: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:37.365114: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:37.666578: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:37.767096: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:38.571036: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:38.671541: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:38.973053: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:39.174012: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:39.475505: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:39.575991: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:39.676488: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:39.776994: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:39.882865: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:40.078465: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:40.178994: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:40.380174: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:40.480455: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:41.083421: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:41.284412: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:42.389867: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:42.490377: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:42.590861: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=32, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:42.691344: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:43.093340: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:43.193842: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:43.394814: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:43.696307: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:43.796801: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:44.399774: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:44.500278: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:44.600802: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:44.701264: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:44.801759: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:44.902278: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:45.304229: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:45.404770: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:45.605716: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:45.706218: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:45.907207: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:46.007700: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:47.113155: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:47.213652: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:47.716124: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:47.816623: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:47.917115: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:48.118102: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:48.218603: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:48.419622: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:48.520094: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:48.922060: Msg:109, ChademoRawVersion=2, OutputVoltage=387, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:49.022555: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:49.826479: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:49.927010: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:50.529949: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:50.630446: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:50.931925: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:51.032434: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:51.132916: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:51.233420: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:51.333909: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:51.434404: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:52.137875: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:52.539866: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:53.142830: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:53.343826: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:53.544808: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:53.645308: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:53.946789: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:54.047286: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:54.147780: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:54.248338: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:54.951813: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:55.052284: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:55.353786: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:55.454269: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:55.554767: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:56.057283: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:56.157749: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:56.559750: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:56.660238: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:57.263216: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:57.464204: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:58.469140: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:58.569635: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:58.876429: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:58.971617: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:59.072106: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:59.172605: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:59.273049: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:59.373546: Msg:109, ChademoRawVersion=2, OutputVoltage=387, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:59.474044: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:59.877978: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:50:59.976523: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:00.077012: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:00.177510: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:00.378497: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:00.679988: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:00.981484: Msg:109, ChademoRawVersion=2, OutputVoltage=387, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:01.081972: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:01.182464: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:01.383452: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:01.584446: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:01.986430: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:02.187422: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:02.890888: Msg:109, ChademoRawVersion=2, OutputVoltage=387, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:02.991387: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:03.091887: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:03.292883: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:03.393375: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:03.694849: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:03.795345: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:03.895852: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:04.197327: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:04.297886: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:04.498868: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:04.599366: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:04.700124: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:04.900932: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:05.001347: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:05.101845: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:05.704781: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:05.805322: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:06.207295: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:06.307788: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:06.408279: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:06.508787: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:06.810261: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=32, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:06.910763: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:07.111752: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:07.513706: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:07.714725: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:08.016200: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:08.116728: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:08.217196: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:08.317684: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:08.518685: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:08.619195: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:09.624083: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:09.724580: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:10.629037: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:10.830034: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:11.031017: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:11.232012: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:11.332508: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:11.834984: Msg:109, ChademoRawVersion=2, OutputVoltage=387, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:11.935477: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:12.035975: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:12.236964: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:12.337462: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:12.538450: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=79
+22:51:12.638947: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:12.739445: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:12.940477: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:13.040929: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:13.744395: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:13.844894: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:14.045882: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:14.146385: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=32, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:14.246872: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:14.548440: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:14.648943: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:14.850032: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:14.950403: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:15.050895: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:15.754360: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:15.854859: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:15.955338: Msg:109, ChademoRawVersion=2, OutputVoltage=388, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:16.055837: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:16.457830: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:16.759311: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:17.161305: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=32, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:17.261807: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:17.362290: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:17.563290: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:17.663781: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:17.764268: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:17.876790: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:17.965258: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:18.065754: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:18.266751: Msg:109, ChademoRawVersion=2, OutputVoltage=387, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:18.367272: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:18.668749: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:18.769228: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:18.869720: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:18.970224: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:19.070930: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:19.372210: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:19.472725: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:19.874670: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:19.975174: Msg:109, ChademoRawVersion=2, OutputVoltage=386, OutputCurrent=31, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:20.075690: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=26, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:20.176156: Msg:109, ChademoRawVersion=2, OutputVoltage=385, OutputCurrent=19, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:20.250475: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:0, Faults:0, Status:CAR_STATUS_V2X_COMPATIBLE, SocPercent:72
+22:51:20.276681: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=16, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:20.377182: Msg:109, ChademoRawVersion=2, OutputVoltage=384, OutputCurrent=7, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:20.477644: Msg:109, ChademoRawVersion=2, OutputVoltage=383, OutputCurrent=7, Status=CHARGER_STATUS_CHARGING, CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:20.578141: Msg:109, ChademoRawVersion=2, OutputVoltage=265, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:20.678642: Msg:109, ChademoRawVersion=2, OutputVoltage=77, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:20.779126: Msg:109, ChademoRawVersion=2, OutputVoltage=23, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:20.879630: Msg:109, ChademoRawVersion=2, OutputVoltage=7, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:20.980124: Msg:109, ChademoRawVersion=2, OutputVoltage=3, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:21.080629: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:21.181132: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:21.281621: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:21.382102: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:21.482603: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:21.583111: Msg:109, ChademoRawVersion=2, OutputVoltage=0, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:21.784080: Msg:109, ChademoRawVersion=2, OutputVoltage=1, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:22.286569: Msg:109, ChademoRawVersion=2, OutputVoltage=2, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:22.387060: Msg:109, ChademoRawVersion=2, OutputVoltage=3, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:22.487563: Msg:109, ChademoRawVersion=2, OutputVoltage=2, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:22.588051: Msg:109, ChademoRawVersion=2, OutputVoltage=3, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:22.650408: Msg:102, ChademoRawVersion:2, TargetVoltage:410, AskingAmps:0, Faults:0, Status:CAR_STATUS_CONTACTOR_OPEN, CAR_STATUS_V2X_COMPATIBLE, SocPercent:72
+22:51:22.990048: Msg:109, ChademoRawVersion=2, OutputVoltage=4, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:23.090535: Msg:109, ChademoRawVersion=2, OutputVoltage=3, OutputCurrent=0, Status=CHARGER_STATUS_PLUG_LOCKED, CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:23.291540: Msg:109, ChademoRawVersion=2, OutputVoltage=3, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
+22:51:23.492519: Msg:109, ChademoRawVersion=2, OutputVoltage=4, OutputCurrent=0, Status=CHARGER_STATUS_CHARGING_STOPPED, RemainingChargeTime10Sec=255, RemainingChargeTimeMins=78
