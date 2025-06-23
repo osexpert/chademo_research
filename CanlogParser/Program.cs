@@ -11,80 +11,45 @@ namespace CanlogParser
 {
     internal class Program
     {
-
-
-        // Function to compute nominal voltage based on input voltage
-        public static int get_estimated_nominal_voltage(int targetVolt)
+        static float GetEstimatedBatteryVoltage(float target, float soc)
         {
-            // Linear mapping, target to nominal for leaf and imiev
-            // (410, 355) or 350 - 360....
-            // (360, 330)
+            float maxVolt = target - 10;
+            float nomVolt = 0.58f * target + 117.2f; // Linear interpolation/extrapolation
+            float minVolt = nomVolt - (maxVolt - nomVolt);
 
-            double x1 = 410.0, y1 = 350.0;
-            double x2 = 360.0, y2 = 330.0;
+            float deltaLow = 0.14f * (nomVolt - minVolt);   // Steeper drop below 20%
+            float deltaHigh = 0.10f * (maxVolt - nomVolt);  // Shallower rise above 80%
 
-            // Compute slope (m) and intercept (b)
-            double m = (y2 - y1) / (x2 - x1); // slope
-            double b = y1 - m * x1;           // intercept
+            float volt20 = nomVolt - deltaLow;
+            float volt80 = nomVolt + deltaHigh;
 
-            // Compute and return nominal voltage
-            return (int)(m * targetVolt + b);
-        }
-
-
-
-        public static double EstimateVoltage(double targetVoltage, double socPercentage)
-        {
-            var maxVoltage = targetVoltage - 10d;
-
-            // Ensure the SOC is within the range of 0 to 100
-            socPercentage = Math.Max(0, Math.Min(100, socPercentage));
-
-            // Define nominal and minimum voltages based on the max voltage
-            double nominalVoltage = maxVoltage * 0.9;  // 90% of max as nominal voltage (350V at 50% SOC)
-            double minVoltage = maxVoltage * 0.75;     // 75% of max as minimum voltage (300V at 0% SOC)
-
-            double voltage;
-
-            if (socPercentage < 50)
+            if (soc < 20.0f)
             {
-                // Slower drop below 50% using a logarithmic function for smoother behavior
-                double scale = 1.5;  // Adjust this value to control the curve's steepness below 50%
-                voltage = minVoltage + (nominalVoltage - minVoltage) * Math.Log(1 + (socPercentage / 50.0) * scale);
+                return minVolt + (soc / 20.0f) * (volt20 - minVolt);
+            }
+            else if (soc < 50.0f)
+            {
+                return volt20 + ((soc - 20.0f) / 30.0f) * (nomVolt - volt20);
+            }
+            else if (soc < 80.0f)
+            {
+                return nomVolt + ((soc - 50.0f) / 30.0f) * (volt80 - nomVolt);
             }
             else
             {
-                // Linear interpolation for SOC >= 50%
-                voltage = minVoltage + (maxVoltage - minVoltage) * (socPercentage / 100);
+                return volt80 + ((soc - 80.0f) / 20.0f) * (maxVolt - volt80);
             }
-
-            return voltage;
         }
-
-
-
-
-
-
 
         static void Main(string[] args)
         {
-            var r1 = EstimateVoltage(410, 50);
-            var r2 = EstimateVoltage(410, 42.5);
+            Console.WriteLine("Hello, World!");
 
-            var r4 = EstimateVoltage(410, 20);
-            var r5 = EstimateVoltage(410, 10);
-
-            
-
-                Console.WriteLine("Hello, World!");
-
-            //var lines = File.ReadAllLines(@"CanLogs\start.candump.txt");
-            var lines = File.ReadAllLines(@"CanLogs\logs.candump.txt");
-            //var lines = File.ReadAllLines(@"CanLogs\nissan-leaf-chademo-start-stop.csv");
-            //var lines = File.ReadAllLines(@"CanLogs\non working charger can log.csv");
-            //var lines = File.ReadAllLines(@"CanLogs\ZE1-chademo-starting-and-charging.csv");
-
+            //var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\start.candump.txt");
+            //var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\logs.candump.txt");
+            var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\nissan-leaf-chademo-start-stop.csv");
+            //var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\non working charger can log.csv");
+            //var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\ZE1-chademo-starting-and-charging.csv");
 
             msg100 lastmsg100 = null;
             msg101 lastmsg101 = null;
@@ -96,9 +61,9 @@ namespace CanlogParser
 
             List<can_msg> messages = new();
 
-            foreach (var line in lines.Where(l => l.Length >= 70))
+            foreach (var line in lines)//.Where(l => l.Length >= 70))
             {
-                (int msg, byte[] data, string time) = GetMessage(line);
+                (int msg, byte[] data, string time) = GetMessageCsv(line);
                 switch (msg)
                 {
                     case 0x100:
@@ -183,7 +148,7 @@ namespace CanlogParser
             public ushort MaxChargeVoltage;// = 435;
             public byte MaxChargingTimeMins;
             internal ushort TargetVoltage;
-            internal ushort BattNominalVoltage => (ushort)Program.get_estimated_nominal_voltage(TargetVoltage);
+            internal ushort EstBattVoltage => (ushort)Program.GetEstimatedBatteryVoltage(TargetVoltage, SocPercent);
             internal byte AskingAmps;
             internal byte SocPercent;
             /// <summary>
@@ -369,7 +334,7 @@ namespace CanlogParser
                     }
                 }
 
-                var log = $"CH: Avail:{_chargerData.AvailableOutputVoltage}V, {_chargerData.AvailableOutputCurrent}A Out:{_chargerData.OutputVoltage}V, {_chargerData.OutputCurrent}A Tres:{_chargerData.ThresholdVoltage}V St:{_chargerData.Status} Rem_t:{_chargerData.RemainingChargeTimeMins}m CAR: Want:{_carData.AskingAmps}A Max:{_carData.MaxChargeVoltage}V Err:{_carData.Faults} St:{_carData.Status} Soc:{_carData.SocPercent}% Max_t:{_carData.MaxChargingTimeMins}m Cap:{_carData.BatteryCapacityKwh}KWh Target:{_carData.TargetVoltage}V EstNomBatt:{_carData.BattNominalVoltage}V ChargingRate={_carData.ChargingRatePercent}%";
+                var log = $"CH: Avail:{_chargerData.AvailableOutputVoltage}V, {_chargerData.AvailableOutputCurrent}A Out:{_chargerData.OutputVoltage}V, {_chargerData.OutputCurrent}A Tres:{_chargerData.ThresholdVoltage}V St:{_chargerData.Status} Rem_t:{_chargerData.RemainingChargeTimeMins}m CAR: Want:{_carData.AskingAmps}A Max:{_carData.MaxChargeVoltage}V Err:{_carData.Faults} St:{_carData.Status} Soc:{_carData.SocPercent}% Max_t:{_carData.MaxChargingTimeMins}m Cap:{_carData.BatteryCapacityKwh}KWh Target:{_carData.TargetVoltage}V EstBatt:{_carData.EstBattVoltage}V ChargingRate={_carData.ChargingRatePercent}%";
                 if (log != lastLog)
                     Log(log);
                 lastLog = log;
@@ -904,7 +869,7 @@ namespace CanlogParser
             /// Typically max battery voltage + 10, so its not _really_ the target voltage. Its more like the charging voltage.
             /// </summary>
             public ushort TargetVoltage;
-            internal ushort BattNominalVoltage => (ushort)Program.get_estimated_nominal_voltage(TargetVoltage);
+            internal ushort EstBattVoltage => (ushort)Program.GetEstimatedBatteryVoltage(TargetVoltage, SocPercent);
 
             public byte AskingAmps;
 
@@ -942,7 +907,7 @@ namespace CanlogParser
 
             public override string ToString()
             {
-                return $"Msg:102, ChademoRawVersion:{ChademoRawVersion}, TargetVoltage:{TargetVoltage}, EstBattNom:{BattNominalVoltage}, AskingAmps:{AskingAmps}, Faults:{Faults}" +
+                return $"Msg:102, ChademoRawVersion:{ChademoRawVersion}, TargetVoltage:{TargetVoltage}, EstBatt:{EstBattVoltage}, AskingAmps:{AskingAmps}, Faults:{Faults}" +
                     $", Status:{Status}, SocPercent:{SocPercent}";
             }
             public override bool Equals(object obj)
