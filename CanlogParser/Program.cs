@@ -11,10 +11,12 @@ namespace CanlogParser
 {
     internal class Program
     {
-        static float GetEstimatedBatteryVoltage(float target, float soc)
+
+        static float GetEstimatedBatteryVoltageV1(float target, float soc)
         {
             float maxVolt = target - 10;
-            float nomVolt = 0.58f * target + 117.2f; // Linear interpolation/extrapolation
+//            float nomVolt = 0.58f * target + 117.2f; // Linear interpolation/extrapolation
+            float nomVolt = 0.5f * target + 150.0f; // Linear interpolation/extrapolation
             float minVolt = nomVolt - (maxVolt - nomVolt);
 
             float deltaLow = 0.14f * (nomVolt - minVolt);   // Steeper drop below 20%
@@ -41,13 +43,53 @@ namespace CanlogParser
             }
         }
 
+
+        static float GetEstimatedBatteryVoltageV2(float target, float soc)
+        {
+            float maxVolt = target - 10;
+
+            // leaf: 410 -> 355, iMiev: 370 -> 330
+            float nomVolt = 0.625f * target + 98.75f;
+
+            float minVolt = nomVolt - (maxVolt - nomVolt);
+
+            float deltaLow = 0.35f * (nomVolt - minVolt);
+            float deltaHigh = 0.55f * (maxVolt - nomVolt);
+
+            float volt20 = nomVolt - deltaLow;
+            float volt80 = nomVolt + deltaHigh;
+
+            if (soc < 50.0f)
+            {
+                return volt20 + ((soc - 20.0f) / 30.0f) * (nomVolt - volt20);
+            }
+            else if (soc < 80.0f)
+            {
+                return nomVolt + ((soc - 50.0f) / 30.0f) * (volt80 - nomVolt);
+            }
+            else
+            {
+                return volt80 + ((soc - 80.0f) / 20.0f) * (maxVolt - volt80);
+            }
+        }
+
         static void Main(string[] args)
         {
+            for (int x = 0; x <= 100; x += 2)
+            {
+                var v1g = GetEstimatedBatteryVoltageV1(410, x);
+                //Console.WriteLine($"soc {x}, volt {v1g}");
+                var v2g = GetEstimatedBatteryVoltageV2(410, x);
+                Console.WriteLine($"soc {x}, volt v1 {v1g}, v2 {v2g}");
+            }
+
             Console.WriteLine("Hello, World!");
 
+            var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\v2h_startup__charge_ffrom_solar_excess_for_a_while_then_turn_on_oven_to_create_load_then_switch_off_load__then_end_session.csv");
+            //var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\av50_old.txt");
             //var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\start.candump.txt");
             //var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\logs.candump.txt");
-            var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\nissan-leaf-chademo-start-stop.csv");
+            //var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\nissan-leaf-chademo-start-stop.csv");
             //var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\non working charger can log.csv");
             //var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\ZE1-chademo-starting-and-charging.csv");
 
@@ -56,6 +98,9 @@ namespace CanlogParser
             msg102 lastmsg102 = null;
             msg108 lastmsg108 = null;
             msg109 lastmsg109 = null;
+            msg200 lastmsg200 = null;
+            msg208 lastmsg208 = null;
+            msg209 lastmsg209 = null;
 
             bool full = false;
 
@@ -112,7 +157,36 @@ namespace CanlogParser
                         }
                         lastmsg109 = m109;
                         break;
+                    case 0x200:
+                        var m200 = Parse200(data, time);
+                        messages.Add(m200);
+                        if (full || lastmsg200 == null || !m200.Equals(lastmsg200))
+                        {
+                            Console.WriteLine(time + ": " + m200.ToString());
+                        }
+                        lastmsg200 = m200;
+                        break;
+                    case 0x208:
+                        var m208 = Parse208(data, time);
+                        messages.Add(m208);
+                        if (full || lastmsg208 == null || !m208.Equals(lastmsg208))
+                        {
+                            Console.WriteLine(time + ": " + m208.ToString());
+                        }
+                        lastmsg208 = m208;
+                        break;
+                    case 0x209:
+                        var m209 = Parse209(data, time);
+                        messages.Add(m209);
+                        if (full || lastmsg209 == null || !m209.Equals(lastmsg209))
+                        {
+                            Console.WriteLine(time + ": " + m209.ToString());
+                        }
+                        lastmsg209 = m209;
+                        break;
+
                 }
+
             }
 
             Console.WriteLine("Farewell, World!");
@@ -148,7 +222,7 @@ namespace CanlogParser
             public ushort MaxChargeVoltage;// = 435;
             public byte MaxChargingTimeMins;
             internal ushort TargetVoltage;
-            internal ushort EstBattVoltage => (ushort)Program.GetEstimatedBatteryVoltage(TargetVoltage, SocPercent);
+            internal ushort EstBattVoltage => (ushort)Program.GetEstimatedBatteryVoltageV2(TargetVoltage, SocPercent);
             internal byte AskingAmps;
             internal byte SocPercent;
             /// <summary>
@@ -749,6 +823,19 @@ namespace CanlogParser
             return new msg100(data, time);
         }
 
+        private static msg200 Parse200(byte[] data, string time)
+        {
+            return new msg200(data, time);
+        }
+        private static msg208 Parse208(byte[] data, string time)
+        {
+            return new msg208(data, time);
+        }
+        private static msg209 Parse209(byte[] data, string time)
+        {
+            return new msg209(data, time);
+        }
+
         class msg100 : can_msg
         {
             public byte MinimumChargeCurrent;
@@ -869,7 +956,7 @@ namespace CanlogParser
             /// Typically max battery voltage + 10, so its not _really_ the target voltage. Its more like the charging voltage.
             /// </summary>
             public ushort TargetVoltage;
-            internal ushort EstBattVoltage => (ushort)Program.GetEstimatedBatteryVoltage(TargetVoltage, SocPercent);
+            internal ushort EstBattVoltage => (ushort)Program.GetEstimatedBatteryVoltageV2(TargetVoltage, SocPercent);
 
             public byte AskingAmps;
 
@@ -1028,7 +1115,7 @@ namespace CanlogParser
             public override string ToString()
             {
                 return $"Msg:109, ChademoRawVersion={ChademoRawVersion}, OutputVoltage={OutputVoltage}, OutputCurrent={OutputCurrent}, Status={Status}" +
-                    $", RemainingChargeTime10Sec={RemainingChargeTime10Sec}, RemainingChargeTimeMins={RemainingChargeTimeMins}";
+                    $", RemainingChargeTime10Sec={RemainingChargeTime10Sec}, RemainingChargeTimeMins={RemainingChargeTimeMins}, DischargeCompatible:{DischargeCompatitible}";
             }
 
             public override bool Equals(object obj)
@@ -1041,6 +1128,148 @@ namespace CanlogParser
                     this.OutputCurrent == other.OutputCurrent &&
                     this.OutputVoltage == other.OutputVoltage &&
                     this.Status == other.Status;
+            }
+        }
+
+        class msg200 : can_msg
+        {
+            byte MaximumDischargeCurrentInverted;
+            UInt16 MinimumDischargeVoltage;
+            byte MinimumBatteryDischargeLevel;
+            byte MaxRemainingCapacityForCharging;
+
+            int can_msg.Id => 0x200;
+            public string Time { get; }
+
+            public msg200(byte[] data, string time)
+            {
+                Time = time;
+
+                MaximumDischargeCurrentInverted = data[0];
+
+                Program.AssertZero(data[1]);
+                Program.AssertZero(data[2]);
+                Program.AssertZero(data[3]);
+
+                MinimumDischargeVoltage = (ushort)(data[4] | data[5] << 8);
+                MinimumBatteryDischargeLevel = data[6];
+                MaxRemainingCapacityForCharging = data[7];
+
+            }
+
+            public msg200()
+            {
+            }
+
+            public override string ToString()
+            {
+                return $"Msg:200, MaximumDischargeCurrentInverted={MaximumDischargeCurrentInverted}, MinimumDischargeVoltage={MinimumDischargeVoltage}" +
+                    $", MinimumBatteryDischargeLevel={MinimumBatteryDischargeLevel}, MaxRemainingCapacityForCharging={MaxRemainingCapacityForCharging}";
+            }
+
+            public override bool Equals(object obj)
+            {
+                var other = (msg200)obj;
+                return this.MaximumDischargeCurrentInverted == other.MaximumDischargeCurrentInverted &&
+                    this.MinimumDischargeVoltage == other.MinimumDischargeVoltage &&
+                    this.MinimumBatteryDischargeLevel == other.MinimumBatteryDischargeLevel &&
+                    this.MaxRemainingCapacityForCharging == other.MaxRemainingCapacityForCharging;
+            }
+        }
+
+
+        class msg208 : can_msg
+        {
+
+            byte PresentDischargeCurrentInverted;
+            UInt16 AvailableInputVoltage;
+            byte AvailableInputCurrentInverted;
+            //byte Unused4;
+            //byte Unused5;
+            UInt16 LowerThresholdVoltage;
+
+            int can_msg.Id => 0x208;
+            public string Time { get; }
+
+            public msg208(byte[] data, string time)
+            {
+                Time = time;
+
+                PresentDischargeCurrentInverted = data[0];
+                AvailableInputVoltage = (ushort)(data[1] | data[2] << 8);
+                AvailableInputCurrentInverted = data[3];
+
+                Program.AssertZero(data[4]);
+                Program.AssertZero(data[5]);
+
+                LowerThresholdVoltage = (ushort)(data[6] | data[7] << 8);
+
+            }
+
+            public msg208()
+            {
+            }
+
+            public override string ToString()
+            {
+                return $"Msg:208, PresentDischargeCurrentInverted={PresentDischargeCurrentInverted}, AvailableInputVoltage={AvailableInputVoltage}" +
+                    $", AvailableInputCurrentInverted={AvailableInputCurrentInverted}, LowerThresholdVoltage={LowerThresholdVoltage}";
+            }
+
+            public override bool Equals(object obj)
+            {
+                var other = (msg208)obj;
+                return this.PresentDischargeCurrentInverted == other.PresentDischargeCurrentInverted &&
+                    this.AvailableInputVoltage == other.AvailableInputVoltage &&
+                    this.AvailableInputCurrentInverted == other.AvailableInputCurrentInverted &&
+                    this.LowerThresholdVoltage == other.LowerThresholdVoltage;
+            }
+        }
+
+
+
+
+        class msg209 : can_msg
+        {
+            byte SequenceControlNumber;
+            UInt16 RemainingDischargeTime;
+            //uint8_t Unused3;
+            //uint8_t Unused4;
+            //uint8_t Unused5;
+            //uint8_t Unused6;
+            //uint8_t Unused7;
+
+            int can_msg.Id => 0x209;
+            public string Time { get; }
+
+            public msg209(byte[] data, string time)
+            {
+                Time = time;
+
+                SequenceControlNumber = data[0];
+                RemainingDischargeTime = (ushort)(data[1] | data[2] << 8);
+                Program.AssertZero(data[3]);
+                Program.AssertZero(data[4]);
+                Program.AssertZero(data[5]);
+                Program.AssertZero(data[6]);
+                Program.AssertZero(data[7]);
+
+            }
+
+            public msg209()
+            {
+            }
+
+            public override string ToString()
+            {
+                return $"Msg:209, SequenceControlNumber={SequenceControlNumber}, RemainingDischargeTime={RemainingDischargeTime}";
+            }
+
+            public override bool Equals(object obj)
+            {
+                var other = (msg209)obj;
+                return this.SequenceControlNumber == other.SequenceControlNumber &&
+                    this.RemainingDischargeTime == other.RemainingDischargeTime;
             }
         }
 
@@ -1076,6 +1305,23 @@ namespace CanlogParser
             }
 
             return (int.Parse(parts[1], NumberStyles.HexNumber, CultureInfo.InvariantCulture), bytes, parts[0]);
+        }
+        private static (int msg, byte[] data, string time) GetMessageTxt(string line)
+        {
+            line = line.Substring(14);
+            var ts = line.Substring(line.Length - 12);
+            line = line.Substring(0, line.Length - 12);
+
+            var parts = line.Split(";");
+
+
+            byte[] bytes = new byte[8];
+            for (int i = 0; i < 6; i++)
+            {
+                bytes[i] = byte.Parse(parts[i + 1], NumberStyles.HexNumber, CultureInfo.InvariantCulture);
+            }
+
+            return (int.Parse(parts[0], NumberStyles.HexNumber, CultureInfo.InvariantCulture), bytes, parts[0]);
         }
 
 

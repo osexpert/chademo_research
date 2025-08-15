@@ -1,0 +1,17 @@
+https://github.com/dalathegreat/EV-CANlogs/blob/main/Nissan%20LEAF/62kWh/ZE1-chademo-starting-and-charging.csv
+ZE1-chademo-starting-and-charging.csv
+
+https://raw.githubusercontent.com/rand12345/chademo-rs/refs/heads/main/CanLogs/nissan-leaf-chademo-start-stop.csv
+nissan-leaf-chademo-start-stop.csv
+	
+https://openinverter.org/forum/download/file.php?id=9911&sid=6179d1ecf9cf19fa7f552bac3972af8a
+non working charger can log.csv
+
+https://github.com/F1atline/Nissan-Leaf-ZE1-CHAdeMO-CAN-Logs
+logs.candump.txt
+start.candump.txt
+
+
+https://raw.githubusercontent.com/damienmaguire/LeafLogs/refs/heads/master/Chademo/av50_old.txt
+
+https://raw.githubusercontent.com/dalathegreat/EV-CANlogs/refs/heads/main/Nissan%20LEAF/V2X/v2h_startup__charge_ffrom_solar_excess_for_a_while_then_turn_on_oven_to_create_load_then_switch_off_load__then_end_session.csv
