@@ -175,7 +175,7 @@ namespace CanlogParser
 
 
 
-        static float GetEstimatedBatteryVoltageV5_core(float target, float soc, float nomVolt = 0, float volt20 = 0)
+        static float GetEstimatedBatteryVoltageV5_core(float target, float soc, float nomVolt = 0, float steeperBelowSoc = 0, float steeperBelowFactor = 0.7f)
         {
             float maxVolt = target - 10;
 
@@ -187,22 +187,20 @@ namespace CanlogParser
                 nomVolt = 0.875f * target + 6.25f;
             }
 
-            if (volt20 == 0)
-            {
-                float minVolt = nomVolt - (maxVolt - nomVolt); // symetric
-                float deltaLow = 0.33f * (nomVolt - minVolt);  // delta 20-50
-                volt20 = nomVolt - deltaLow;
-            }
+            float minVolt = nomVolt - (maxVolt - nomVolt); // symetric
+
+            float deltaLow = 0.35f * (nomVolt - minVolt);  // delta 20-50
+            float volt20 = nomVolt - deltaLow;
 
             float deltaHigh = 0.55f * (maxVolt - nomVolt); // delta 50-80
             float volt80 = nomVolt + deltaHigh;
 
-            //if (soc < 20)
-            //{
-            //    return minVolt + ((soc - 0.0f) / 20.0f) * (volt20 - minVolt);
-            //}
-            //else 
-            if (soc < 50.0f)
+            if (steeperBelowSoc != 0 && soc < steeperBelowSoc)
+            {
+                float volt0 = minVolt - steeperBelowFactor * (volt20 - minVolt);
+                return volt0 + (soc / steeperBelowSoc) * (volt20 - volt0);
+            }
+            else if (soc < 50.0f)
             {
                 return volt20 + ((soc - 20.0f) / 30.0f) * (nomVolt - volt20);
             }
@@ -216,7 +214,7 @@ namespace CanlogParser
             }
         }
 
-        static (int nok, int volt20) GetNomVoltOverridev5(float target, int af = 0)
+        static (int nok, int steeperBelowSoc) GetNomVoltOverridev5(float target, int af = 0)
         {
             // Get nomvolt for some known targets
             if (target == 370)
@@ -226,9 +224,9 @@ namespace CanlogParser
             else if (target == 410)
             {
                 if (af == 0)
-                    return (355, 0); // Leaf 40+
+                    return (356, 0); // Leaf 40+
                 else if (af == 1)
-                    return (380, 365); // Leaf 20-30
+                    return (380, 29); // Leaf 20-30
             }
 
             return (0, 0); // unknown -> use formula
@@ -236,8 +234,8 @@ namespace CanlogParser
 
         static float GetEstimatedBatteryVoltageV5(float target, float soc, int af)
         {
-            (var nom, var volt20) = GetNomVoltOverridev5(target, af);
-            return GetEstimatedBatteryVoltageV5_core(target, soc, nom, volt20);
+            (var nom, var steeperBelowSoc) = GetNomVoltOverridev5(target, af);
+            return GetEstimatedBatteryVoltageV5_core(target, soc, nom, steeperBelowSoc);
         }
 
 
@@ -250,7 +248,7 @@ namespace CanlogParser
 
             for (int x = 0; x <= 100; x += 1)
             {
-                var target = 450;
+                var target = 410;
                 var v1g = GetEstimatedBatteryVoltageV1(target, x);
                 //Console.WriteLine($"soc {x}, volt {v1g}");
                 var v2g = GetEstimatedBatteryVoltageV2(target, x);
