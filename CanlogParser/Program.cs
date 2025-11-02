@@ -175,7 +175,7 @@ namespace CanlogParser
 
 
 
-        static float GetEstimatedBatteryVoltageV5_core(float target, float soc, float nomVolt = 0, float steeperBelowSoc = 0, float steeperBelowFactor = 0.7f)
+        static float GetEstimatedBatteryVoltageV5_core(float target, float soc, float nomVolt = 0, float adjustBelowSoc = 0, float adjustBelowFactor = 0f)
         {
             float maxVolt = target - 10;
 
@@ -195,10 +195,10 @@ namespace CanlogParser
             float deltaHigh = 0.55f * (maxVolt - nomVolt); // delta 50-80
             float volt80 = nomVolt + deltaHigh;
 
-            if (steeperBelowSoc != 0 && soc < steeperBelowSoc)
+            if (adjustBelowSoc != 0 && soc < adjustBelowSoc)
             {
-                float volt0 = minVolt - steeperBelowFactor * (volt20 - minVolt);
-                return volt0 + (soc / steeperBelowSoc) * (volt20 - volt0);
+                float volt0 = minVolt - adjustBelowFactor * (volt20 - minVolt);
+                return volt0 + (soc / adjustBelowSoc) * (volt20 - volt0);
             }
             else if (soc < 50.0f)
             {
@@ -214,28 +214,28 @@ namespace CanlogParser
             }
         }
 
-        static (int nok, int steeperBelowSoc) GetNomVoltOverridev5(float target, int af = 0)
+        static (int nok, int steeperBelowSoc, float adjustBelowFactor) GetNomVoltOverridev5(float target, int af = 0)
         {
             // Get nomvolt for some known targets
             if (target == 370)
-                return (330, 0); // iMiev
+                return (330, 0, 0); // iMiev
             else if (target == 450)
-                return (400, 0); // BMW i5 M60 
+                return (400, 0, 0); // BMW i5 M60 
             else if (target == 410)
             {
                 if (af == 0)
-                    return (356, 0); // Leaf 40+
+                    return (356, 0, 0); // Leaf 40+
                 else if (af == 1)
-                    return (380, 29); // Leaf 20-30
+                    return (380, 29, 0.7f); // Leaf 20-30
             }
 
-            return (0, 0); // unknown -> use formula
+            return (0, 0, 0); // unknown -> use formula
         }
 
         static float GetEstimatedBatteryVoltageV5(float target, float soc, int af)
         {
-            (var nom, var steeperBelowSoc) = GetNomVoltOverridev5(target, af);
-            return GetEstimatedBatteryVoltageV5_core(target, soc, nom, steeperBelowSoc);
+            (var nom, var adjustBelowSoc, var adjustBelowFactor) = GetNomVoltOverridev5(target, af);
+            return GetEstimatedBatteryVoltageV5_core(target, soc, nom, adjustBelowSoc, adjustBelowFactor);
         }
 
 
