@@ -224,7 +224,7 @@ namespace CanlogParser
             else if (target == 410)
             {
                 if (af == 0)
-                    return (356, 0, 0); // Leaf 40+
+                    return (355, 0, 0); // Leaf 40+
                 else if (af == 1)
                     return (380, 29, 0.7f); // Leaf 20-30
             }
@@ -249,17 +249,17 @@ namespace CanlogParser
             for (int x = 0; x <= 100; x += 1)
             {
                 var target = 410;
+
                 var v1g = GetEstimatedBatteryVoltageV1(target, x);
-                //Console.WriteLine($"soc {x}, volt {v1g}");
                 var v2g = GetEstimatedBatteryVoltageV2(target, x);
                 var v3g = GetEstimatedBatteryVoltageV3(target, x);
                 var v4g_af0 = GetEstimatedBatteryVoltageV4(target, x, 0);
                 var v4g_af1 = GetEstimatedBatteryVoltageV4(target, x, 1);
                 var v5g_af0 = GetEstimatedBatteryVoltageV5(target, x, 0);
                 var v5g_af1 = GetEstimatedBatteryVoltageV5(target, x, 1);
-                //              var v4g = GetEstimatedBatteryVoltageV4(410, x, 0);
-                //                var v4g_af1 = GetEstimatedBatteryVoltageV4(410, x, 1);
-                Console.WriteLine($"soc {x}, volt v1 {(int)v1g}, v2 {(int)v2g}, v3 {(int)v3g}, v4_af0 {(int)v4g_af0}, v4_af1 {(int)v4g_af1}, v5_af0 {(int)v5g_af0}, v5_af1 {(int)v5g_af1}");
+
+                //                Console.WriteLine($"soc {x}, volt v1 {(int)v1g}, v2 {(int)v2g}, v3 {(int)v3g}, v4_af0 {(int)v4g_af0}, v5_af0 {(int)v5g_af0}");
+                Console.WriteLine($"soc {x}, v4_af1 {(int)v4g_af1}, v5_af1 {(int)v5g_af1}");
             }
 
             Console.WriteLine("Hello, World!");
