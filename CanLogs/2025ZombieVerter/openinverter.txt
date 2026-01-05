@@ -1,0 +1,48 @@
+https://openinverter.org/forum/viewtopic.php?t=2569
+FailedInstaVolt.csv
+InstaVoltFail_0_9_Force.txt
+ZombieVerter
+https://github.com/damienmaguire/Stm32-vcu/blob/master/src/chademo.cpp
+
+https://openinverter.org/forum/viewtopic.php?p=42749#p42749
+GeniePointFail.csv
+
+https://openinverter.org/forum/viewtopic.php?p=40665#p40665
+FAILCHAD.csv
+
+https://openinverter.org/forum/viewtopic.php?p=41341#p41341
+chademo test_0001_0000.csv
+
+https://openinverter.org/forum/viewtopic.php?p=46641#p46641
+Failcan2.csv
+
+https://openinverter.org/forum/viewtopic.php?p=53892#p53892
+evgo @ walmart.csv
+evgo @ kildare.csv
+ea @ target.csv
+    
+https://openinverter.org/forum/viewtopic.php?p=54014#p54014
+abb @ nissan std setup.csv
+
+https://openinverter.org/forum/viewtopic.php?p=54271#p54271
+chademo test_0001_0000.csv -> chademo test_0001_0000(1).csv
+
+
+https://openinverter.org/forum/viewtopic.php?p=54500#p54500
+evgo @ walmart2.csv
+evgo @ kildare 2.csv
+ea @ target 2.csv
+abb @ nissan 2.csv
+evgo @ walmart.csv        (1)
+evgo @ kildare.csv        (1)
+ea @ target.csv           (1)
+abb @ nissan.csv
+        
+https://openinverter.org/forum/viewtopic.php?p=55264#p55264
+evgo at walmart.csv
+ea at target.csv        
+    
+https://openinverter.org/forum/viewtopic.php?p=59556#p59556
+InstavoltBYDFail.csv
+
+    
