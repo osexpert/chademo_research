@@ -5,6 +5,7 @@ using System.Reflection.Metadata;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.Timers;
 using System.Xml.Linq;
 using CanlogParser2;
 
@@ -13,255 +14,8 @@ namespace CanlogParser
     internal class Program
     {
 
-        static float GetEstimatedBatteryVoltageV1(float target, float soc)
-        {
-            float maxVolt = target - 10;
-//            float nomVolt = 0.58f * target + 117.2f; // Linear interpolation/extrapolation
-            float nomVolt = 0.5f * target + 150.0f; // Linear interpolation/extrapolation
-            float minVolt = nomVolt - (maxVolt - nomVolt);
-
-            float deltaLow = 0.14f * (nomVolt - minVolt);   // Steeper drop below 20%
-            float deltaHigh = 0.10f * (maxVolt - nomVolt);  // Shallower rise above 80%
-
-            float volt20 = nomVolt - deltaLow;
-            float volt80 = nomVolt + deltaHigh;
-
-            if (soc < 20.0f)
-            {
-                return minVolt + (soc / 20.0f) * (volt20 - minVolt);
-            }
-            else if (soc < 50.0f)
-            {
-                return volt20 + ((soc - 20.0f) / 30.0f) * (nomVolt - volt20);
-            }
-            else if (soc < 80.0f)
-            {
-                return nomVolt + ((soc - 50.0f) / 30.0f) * (volt80 - nomVolt);
-            }
-            else
-            {
-                return volt80 + ((soc - 80.0f) / 20.0f) * (maxVolt - volt80);
-            }
-        }
-
-
-        static float GetEstimatedBatteryVoltageV2(float target, float soc)
-        {
-            float maxVolt = target - 10;
-
-            // leaf: 410 -> 355, iMiev: 370 -> 330
-            float nomVolt = 0.625f * target + 98.75f;
-
-            float minVolt = nomVolt - (maxVolt - nomVolt);
-
-            float deltaLow = 0.35f * (nomVolt - minVolt);
-            float deltaHigh = 0.55f * (maxVolt - nomVolt);
-
-            float volt20 = nomVolt - deltaLow;
-            float volt80 = nomVolt + deltaHigh;
-
-            if (soc < 50.0f)
-            {
-                return volt20 + ((soc - 20.0f) / 30.0f) * (nomVolt - volt20);
-            }
-            else if (soc < 80.0f)
-            {
-                return nomVolt + ((soc - 50.0f) / 30.0f) * (volt80 - nomVolt);
-            }
-            else
-            {
-                return volt80 + ((soc - 80.0f) / 20.0f) * (maxVolt - volt80);
-            }
-        }
-
-        static float GetEstimatedBatteryVoltageV3(float target, float soc, float nomVolt = 0)
-        {
-            float maxVolt = target - 10;
-
-            if (nomVolt == 0)
-            {
-                if (target < 410)
-                {
-                    // Low segment: iMiev 370 -> 330 and meets high segment at 410
-                    nomVolt = 0.625f * target + 98.75f;
-                }
-                else
-                {
-                    // High segment: Leaf 40: 410 -> 355, BMW i5 M60: 450 -> 400
-                    nomVolt = 1.125f * target - 106.25f;
-                }
-            }
-
-            float minVolt = nomVolt - (maxVolt - nomVolt);
-
-            float deltaLow = 0.35f * (nomVolt - minVolt);
-            float deltaHigh = 0.55f * (maxVolt - nomVolt);
-
-            float volt20 = nomVolt - deltaLow;
-            float volt80 = nomVolt + deltaHigh;
-
-            if (soc < 50.0f)
-            {
-                return volt20 + ((soc - 20.0f) / 30.0f) * (nomVolt - volt20);
-            }
-            else if (soc < 80.0f)
-            {
-                return nomVolt + ((soc - 50.0f) / 30.0f) * (volt80 - nomVolt);
-            }
-            else
-            {
-                return volt80 + ((soc - 80.0f) / 20.0f) * (maxVolt - volt80);
-            }
-        }
-
-
-        static float GetEstimatedBatteryVoltageV4_core(float target, float soc, float nomVolt = 0)
-        {
-            float maxVolt = target - 10;
-
-            if (nomVolt == 0)
-            {
-                // Based on 2 extreme data points: iMiev 370 -> 330 and BMW i5 M60: 450 -> 400
-                // For 410 -> 365 (leaf 20-30kwh is 380, leaf 40+ is 355, so 365 is not a bad estimate)
-                // PS: For known targets, we set nomVoltOverride, so this will only be used for unknown targets
-                nomVolt = 0.875f * target + 6.25f;
-            }
-
-            float minVolt = nomVolt - (maxVolt - nomVolt); // assume symetric min/max around nomvolt
-
-            float deltaLow = 0.35f * (nomVolt - minVolt); // delta between 20-50
-            float deltaHigh = 0.55f * (maxVolt - nomVolt); // delta between 50-80
-
-            float volt20 = nomVolt - deltaLow;
-            float volt80 = nomVolt + deltaHigh;
-
-            if (soc < 50.0f)
-            {
-                return volt20 + ((soc - 20.0f) / 30.0f) * (nomVolt - volt20);
-            }
-            else if (soc < 80.0f)
-            {
-                return nomVolt + ((soc - 50.0f) / 30.0f) * (volt80 - nomVolt);
-            }
-            else
-            {
-                return volt80 + ((soc - 80.0f) / 20.0f) * (maxVolt - volt80);
-            }
-        }
-
-        static int GetNomVoltOverridev4(float target, int af = 0)
-        {
-            // Get nomvolt for some known targets
-            if (target == 370)
-                return 330; // iMiev
-            else if (target == 450)
-                return 400; // BMW i5 M60 
-            else if (target == 410)
-            {
-                if (af == 0)
-                    return 355; // Leaf 40+
-                else if (af == 1)
-                    return 380; // Leaf 20-30
-            }
-
-            return 0; // unknown -> use formula
-        }
-
-        static float GetEstimatedBatteryVoltageV4(float target, float soc, int af)
-        {
-            var nom = GetNomVoltOverridev4(target, af);
-            return GetEstimatedBatteryVoltageV4_core(target, soc, nom);
-        }
-
-
-
-        static float GetEstimatedBatteryVoltageV5_core(float target, float soc, float nomVolt = 0, float adjustBelowSoc = 0, float adjustBelowFactor = 0f)
-        {
-            float maxVolt = target - 10;
-
-            if (nomVolt == 0)
-            {
-                // Based on 2 extreme data points: iMiev 370 -> 330 and BMW i5 M60: 450 -> 400
-                // For 410 -> 365 (leaf 20-30kwh is 380, leaf 40+ is 355, so 365 is not a bad estimate)
-                // PS: For known targets, we set nomVoltOverride, so this will only be used for unknown targets
-                nomVolt = 0.875f * target + 6.25f;
-            }
-
-            float minVolt = nomVolt - (maxVolt - nomVolt); // symetric
-
-            float deltaLow = 0.35f * (nomVolt - minVolt);  // delta 20-50
-            float volt20 = nomVolt - deltaLow;
-
-            float deltaHigh = 0.55f * (maxVolt - nomVolt); // delta 50-80
-            float volt80 = nomVolt + deltaHigh;
-
-            if (adjustBelowSoc != 0 && soc < adjustBelowSoc)
-            {
-                float volt0 = minVolt - adjustBelowFactor * (volt20 - minVolt);
-                return volt0 + (soc / adjustBelowSoc) * (volt20 - volt0);
-            }
-            else if (soc < 50.0f)
-            {
-                return volt20 + ((soc - 20.0f) / 30.0f) * (nomVolt - volt20);
-            }
-            else if (soc < 80.0f)
-            {
-                return nomVolt + ((soc - 50.0f) / 30.0f) * (volt80 - nomVolt);
-            }
-            else
-            {
-                return volt80 + ((soc - 80.0f) / 20.0f) * (maxVolt - volt80);
-            }
-        }
-
-        static (int nok, int steeperBelowSoc, float adjustBelowFactor) GetNomVoltOverridev5(float target, int af = 0)
-        {
-            // Get nomvolt for some known targets
-            if (target == 370)
-                return (330, 0, 0); // iMiev
-            else if (target == 450)
-                return (400, 0, 0); // BMW i5 M60 
-            else if (target == 410)
-            {
-                if (af == 0)
-                    return (355, 0, 0); // Leaf 40+
-                else if (af == 1)
-                    return (380, 29, 0.7f); // Leaf 20-30
-            }
-
-            return (0, 0, 0); // unknown -> use formula
-        }
-
-        static float GetEstimatedBatteryVoltageV5(float target, float soc, int af)
-        {
-            (var nom, var adjustBelowSoc, var adjustBelowFactor) = GetNomVoltOverridev5(target, af);
-            return GetEstimatedBatteryVoltageV5_core(target, soc, nom, adjustBelowSoc, adjustBelowFactor);
-        }
-
-
         static void Main(string[] args)
         {
-
-            //Program2.Maine();
-
-            Console.WriteLine();
-
-            for (int x = 0; x <= 100; x += 1)
-            {
-                var target = 410;
-
-                var v1g = GetEstimatedBatteryVoltageV1(target, x);
-                var v2g = GetEstimatedBatteryVoltageV2(target, x);
-                var v3g = GetEstimatedBatteryVoltageV3(target, x);
-                var v4g_af0 = GetEstimatedBatteryVoltageV4(target, x, 0);
-                var v4g_af1 = GetEstimatedBatteryVoltageV4(target, x, 1);
-                var v5g_af0 = GetEstimatedBatteryVoltageV5(target, x, 0);
-                var v5g_af1 = GetEstimatedBatteryVoltageV5(target, x, 1);
-
-                //                Console.WriteLine($"soc {x}, volt v1 {(int)v1g}, v2 {(int)v2g}, v3 {(int)v3g}, v4_af0 {(int)v4g_af0}, v5_af0 {(int)v5g_af0}");
-                Console.WriteLine($"soc {x}, v4_af1 {(int)v4g_af1}, v5_af1 {(int)v5g_af1}");
-            }
-
             Console.WriteLine("Hello, World!");
 
             var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\v2h_startup__charge_ffrom_solar_excess_for_a_while_then_turn_on_oven_to_create_load_then_switch_off_load__then_end_session.csv");
@@ -271,6 +25,8 @@ namespace CanlogParser
             //var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\nissan-leaf-chademo-start-stop.csv");
             //var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\non working charger can log.csv");
             //var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\ZE1-chademo-starting-and-charging.csv");
+            //var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\2025\InstavoltBYDFail.csv");
+
 
             msg100 lastmsg100 = null;
             msg101 lastmsg101 = null;
@@ -281,39 +37,78 @@ namespace CanlogParser
             msg208 lastmsg208 = null;
             msg209 lastmsg209 = null;
 
-            bool full = false;
+            
 
             List<can_msg> messages = new();
 
-            foreach (var line in lines)//.Where(l => l.Length >= 70))
+            List<(int msg, byte[] data, string time)> dataLines = GetMessagesAuto(lines);
+
+            int unchanged100 = 0;
+
+            foreach (var line in dataLines)
             {
-                (int msg, byte[] data, string time) = GetMessageCsv(line);
+                (int msg, byte[] data, string time) = line;
                 switch (msg)
                 {
                     case 0x100:
                         var m100 = Parse100(data, time);
                         messages.Add(m100);
-                        if (full || lastmsg100 == null || !m100.Equals(lastmsg100))
+                        bool printed = false;
+                        if (lastmsg100 == null || !m100.Equals(lastmsg100))
                         {
-                            Console.WriteLine(time + ": " + m100.ToString());
+                            foreach (var lin in m100.ToDiffLines(lastmsg100))
+                            {
+                                if (unchanged100 > 0)
+                                {
+                                    Console.WriteLine("".PadRight(unchanged100, '.'));
+                                    unchanged100 = 0;
+                                }
+
+                                Console.WriteLine(lin);
+                                printed = true;
+                            }
                         }
+
+                        if (printed)
+                            unchanged100 = 0;
+                        else
+                            unchanged100++;
+
                         lastmsg100 = m100;
                         break;
                     case 0x101:
                         var m101 = Parse101(data, time);
                         messages.Add(m101);
-                        if (full || lastmsg101 == null || !m101.Equals(lastmsg101))
+                        if (lastmsg101 == null || !m101.Equals(lastmsg101))
                         {
-                            Console.WriteLine(time + ": " + m101.ToString());
+                            foreach (var lin in m101.ToDiffLines(lastmsg101))
+                            {
+                                if (unchanged100 > 0)
+                                {
+                                    Console.WriteLine("".PadRight(unchanged100, '.'));
+                                    unchanged100 = 0;
+                                }
+
+                                Console.WriteLine(lin);
+                            }
                         }
                         lastmsg101 = m101;
                         break;
                     case 0x102:
                         var m102 = Parse102(data, time);
                         messages.Add(m102);
-                        if (full || lastmsg102 == null || !m102.Equals(lastmsg102))
+                        if (lastmsg102 == null || !m102.Equals(lastmsg102))
                         {
-                            Console.WriteLine(time + ": " + m102.ToString());
+                            foreach (var lin in m102.ToDiffLines(lastmsg102))
+                            {
+                                if (unchanged100 > 0)
+                                {
+                                    Console.WriteLine("".PadRight(unchanged100, '.'));
+                                    unchanged100 = 0;
+                                }
+
+                                Console.WriteLine(lin);
+                            }
                         }
                         lastmsg102 = m102;
                         break;
@@ -321,45 +116,90 @@ namespace CanlogParser
                     case 0x108:
                         var m108 = Parse108(data, time);
                         messages.Add(m108);
-                        if (full || lastmsg108 == null || !m108.Equals(lastmsg108))
+                        if (lastmsg108 == null || !m108.Equals(lastmsg108))
                         {
-                            Console.WriteLine(time + ": " + m108.ToString());
+                            foreach (var lin in m108.ToDiffLines(lastmsg108))
+                            {
+                                if (unchanged100 > 0)
+                                {
+                                    Console.WriteLine("".PadRight(unchanged100, '.'));
+                                    unchanged100 = 0;
+                                }
+
+                                Console.WriteLine(lin);
+                            }
                         }
                         lastmsg108 = m108;
                         break;
                     case 0x109:
                         var m109 = Parse109(data, time);
                         messages.Add(m109);
-                        if (full || lastmsg109 == null || !m109.Equals(lastmsg109))
+                        if (lastmsg109 == null || !m109.Equals(lastmsg109))
                         {
-                            Console.WriteLine(time + ": " + m109.ToString());
+                            foreach (var lin in m109.ToDiffLines(lastmsg109))
+                            {
+                                if (unchanged100 > 0)
+                                {
+                                    Console.WriteLine("".PadRight(unchanged100, '.'));
+                                    unchanged100 = 0;
+                                }
+
+                                Console.WriteLine(lin);
+                            }
                         }
                         lastmsg109 = m109;
                         break;
                     case 0x200:
                         var m200 = Parse200(data, time);
                         messages.Add(m200);
-                        if (full || lastmsg200 == null || !m200.Equals(lastmsg200))
+                        if (lastmsg200 == null || !m200.Equals(lastmsg200))
                         {
-                            Console.WriteLine(time + ": " + m200.ToString());
+                            foreach (var lin in m200.ToDiffLines(lastmsg200))
+                            {
+                                if (unchanged100 > 0)
+                                {
+                                    Console.WriteLine("".PadRight(unchanged100, '.'));
+                                    unchanged100 = 0;
+                                }
+
+                                Console.WriteLine(lin);
+                            }
                         }
                         lastmsg200 = m200;
                         break;
                     case 0x208:
                         var m208 = Parse208(data, time);
                         messages.Add(m208);
-                        if (full || lastmsg208 == null || !m208.Equals(lastmsg208))
+                        if (lastmsg208 == null || !m208.Equals(lastmsg208))
                         {
-                            Console.WriteLine(time + ": " + m208.ToString());
+                            foreach (var lin in m208.ToDiffLines(lastmsg208))
+                            {
+                                if (unchanged100 > 0)
+                                {
+                                    Console.WriteLine("".PadRight(unchanged100, '.'));
+                                    unchanged100 = 0;
+                                }
+
+                                Console.WriteLine(lin);
+                            }
                         }
                         lastmsg208 = m208;
                         break;
                     case 0x209:
                         var m209 = Parse209(data, time);
                         messages.Add(m209);
-                        if (full || lastmsg209 == null || !m209.Equals(lastmsg209))
+                        if (lastmsg209 == null || !m209.Equals(lastmsg209))
                         {
-                            Console.WriteLine(time + ": " + m209.ToString());
+                            foreach (var lin in m209.ToDiffLines(lastmsg209))
+                            {
+                                if (unchanged100 > 0)
+                                {
+                                    Console.WriteLine("".PadRight(unchanged100, '.'));
+                                    unchanged100 = 0;
+                                }
+
+                                Console.WriteLine(lin);
+                            }
                         }
                         lastmsg209 = m209;
                         break;
@@ -373,6 +213,24 @@ namespace CanlogParser
             var sm = new ChademoChargerStateMachine();
             sm.SetMessages(messages);
             sm.ChargerLoop();
+        }
+
+        private static List<(int msg, byte[] data, string time)> GetMessagesAuto(string[] lines)
+        {
+            var firstLine = lines[0];
+            if (firstLine == "Time Stamp,ID,Extended,Dir,Bus,LEN,D1,D2,D3,D4,D5,D6,D7,D8")
+                return lines.Skip(1).Select(l => GetMessageCsv_Time_Stamp(l)).ToList();
+
+            if (firstLine == "Index;System Time;Time Stamp;Channel;Direction;ID;Type;Format;Len;Data")
+                return lines.Skip(1).Select(l => GetMessageCsv_Index(l)).ToList();
+
+            if (firstLine.StartsWith("Rcvd msgID:"))
+                return lines.Select(l => GetMessage_Rcvd_msgID(l)).ToList();
+
+            if (lines.Take(10).Where(l => l.StartsWith(" (")).Any())
+                return lines.Where(l => l.StartsWith(" (")).Select(l => GetMessageParaTime(l)).ToList();
+
+            throw new Exception("unknown canlog format");
         }
 
         enum ChargerState
@@ -401,7 +259,7 @@ namespace CanlogParser
             public ushort MaxChargeVoltage;// = 435;
             public byte MaxChargingTimeMins;
             internal ushort TargetVoltage;
-            internal ushort EstBattVoltage => (ushort)Program.GetEstimatedBatteryVoltageV2(TargetVoltage, SocPercent);
+
             internal byte AskingAmps;
             internal byte SocPercent;
             /// <summary>
@@ -587,7 +445,7 @@ namespace CanlogParser
                     }
                 }
 
-                var log = $"CH: Avail:{_chargerData.AvailableOutputVoltage}V, {_chargerData.AvailableOutputCurrent}A Out:{_chargerData.OutputVoltage}V, {_chargerData.OutputCurrent}A Tres:{_chargerData.ThresholdVoltage}V St:{_chargerData.Status} Rem_t:{_chargerData.RemainingChargeTimeMins}m CAR: Want:{_carData.AskingAmps}A Max:{_carData.MaxChargeVoltage}V Err:{_carData.Faults} St:{_carData.Status} Soc:{_carData.SocPercent}% Max_t:{_carData.MaxChargingTimeMins}m Cap:{_carData.BatteryCapacityKwh}KWh Target:{_carData.TargetVoltage}V EstBatt:{_carData.EstBattVoltage}V ChargingRate={_carData.ChargingRatePercent}%";
+                var log = $"CH: Avail:{_chargerData.AvailableOutputVoltage}V, {_chargerData.AvailableOutputCurrent}A Out:{_chargerData.OutputVoltage}V, {_chargerData.OutputCurrent}A Tres:{_chargerData.ThresholdVoltage}V St:{_chargerData.Status} Rem_t:{_chargerData.RemainingChargeTimeMins}m CAR: Want:{_carData.AskingAmps}A Max:{_carData.MaxChargeVoltage}V Err:{_carData.Faults} St:{_carData.Status} Soc:{_carData.SocPercent}% Max_t:{_carData.MaxChargingTimeMins}m Cap:{_carData.BatteryCapacityKwh}KWh Target:{_carData.TargetVoltage}V ChargingRate={_carData.ChargingRatePercent}%";
                 if (log != lastLog)
                     Log(log);
                 lastLog = log;
@@ -1045,6 +903,31 @@ namespace CanlogParser
                 Program.AssertZero(data[7]);
             }
 
+            public List<string> ToDiffLines(msg100 other)
+            {
+                var lines = new List<string>();
+
+                if (other == null)
+                {
+                    lines.Add($"{Time}: 100.MinimumChargeCurrent (null) -> {this.MinimumChargeCurrent}");
+                    lines.Add($"{Time}: 100.MaxChargeVoltage (null) -> {this.MaxChargeVoltage}");
+                    lines.Add($"{Time}: 100.ChargingRatePercent (null) -> {this.ChargingRatePercent}");
+                }
+                else
+                {
+                    if (this.MinimumChargeCurrent != other.MinimumChargeCurrent)
+                        lines.Add($"{Time}: 100.MinimumChargeCurrent {other.MinimumChargeCurrent} -> {this.MinimumChargeCurrent}");
+
+                    if (this.MaxChargeVoltage != other.MaxChargeVoltage)
+                        lines.Add($"{Time}: 100.MaxChargeVoltage {other.MaxChargeVoltage} -> {this.MaxChargeVoltage}");
+
+                    if (this.ChargingRatePercent != other.ChargingRatePercent)
+                        lines.Add($"{Time}: 100.ChargingRatePercent {other.ChargingRatePercent} -> {this.ChargingRatePercent}");
+                }
+
+                return lines;
+            }
+
             public override string ToString()
             {
                 return $"Msg:100, MinimumChargeCurrent:{MinimumChargeCurrent}, MaxChargeVoltage:{MaxChargeVoltage}, ChargingRatePercent:{ChargingRatePercent}";
@@ -1110,6 +993,35 @@ namespace CanlogParser
                 Program.AssertZero(data[7]);
             }
 
+            public List<string> ToDiffLines(msg101 other)
+            {
+                var lines = new List<string>();
+
+                if (other == null)
+                {
+                    lines.Add($"{Time}: 101.MaxChargingTime10Sec (null) -> {this.MaxChargingTime10Sec}");
+                    lines.Add($"{Time}: 101.MaxChargingTimeMins (null) -> {this.MaxChargingTimeMins}");
+                    lines.Add($"{Time}: 101.EstimatedChargingTimeMins (null) -> {this.EstimatedChargingTimeMins}");
+                    lines.Add($"{Time}: 101.BatteryCapacityKwh (null) -> {this.BatteryCapacityKwh}");
+                }
+                else
+                {
+                    if (this.MaxChargingTime10Sec != other.MaxChargingTime10Sec)
+                        lines.Add($"{Time}: 101.MaxChargingTime10Sec {other.MaxChargingTime10Sec} -> {this.MaxChargingTime10Sec}");
+
+                    if (this.MaxChargingTimeMins != other.MaxChargingTimeMins)
+                        lines.Add($"{Time}: 101.MaxChargingTimeMins {other.MaxChargingTimeMins} -> {this.MaxChargingTimeMins}");
+
+                    if (this.EstimatedChargingTimeMins != other.EstimatedChargingTimeMins)
+                        lines.Add($"{Time}: 101.EstimatedChargingTimeMins {other.EstimatedChargingTimeMins} -> {this.EstimatedChargingTimeMins}");
+
+                    if (this.BatteryCapacityKwh != other.BatteryCapacityKwh)
+                        lines.Add($"{Time}: 101.BatteryCapacityKwh {other.BatteryCapacityKwh} -> {this.BatteryCapacityKwh}");
+                }
+
+                return lines;
+            }
+
             public override string ToString()
             {
                 return $"Msg:101, MaxChargingTime10Sec:{MaxChargingTime10Sec}" +
@@ -1135,7 +1047,6 @@ namespace CanlogParser
             /// Typically max battery voltage + 10, so its not _really_ the target voltage. Its more like the charging voltage.
             /// </summary>
             public ushort TargetVoltage;
-            internal ushort EstBattVoltage => (ushort)Program.GetEstimatedBatteryVoltageV2(TargetVoltage, SocPercent);
 
             public byte AskingAmps;
 
@@ -1171,9 +1082,45 @@ namespace CanlogParser
                 Program.AssertZero(data[7]);
             }
 
+            public List<string> ToDiffLines(msg102 other)
+            {
+                var lines = new List<string>();
+
+                if (other == null)
+                {
+                    lines.Add($"{Time}: 102.ChademoRawVersion (null) -> {this.ChademoRawVersion}");
+                    lines.Add($"{Time}: 102.TargetVoltage (null) -> {this.TargetVoltage}");
+                    lines.Add($"{Time}: 102.AskingAmps (null) -> {this.AskingAmps}");
+                    lines.Add($"{Time}: 102.Faults (null) -> {this.Faults}");
+                    lines.Add($"{Time}: 102.Status (null) -> {this.Status}");
+                    lines.Add($"{Time}: 102.SocPercent (null) -> {this.SocPercent}");
+                }
+                else
+                {
+                    if (this.ChademoRawVersion != other.ChademoRawVersion)
+                        lines.Add($"{Time}: 102.ChademoRawVersion {other.ChademoRawVersion} -> {this.ChademoRawVersion}");
+
+                    if (this.TargetVoltage != other.TargetVoltage)
+                        lines.Add($"{Time}: 102.TargetVoltage {other.TargetVoltage} -> {this.TargetVoltage}");
+
+                    if (this.AskingAmps != other.AskingAmps)
+                        lines.Add($"{Time}: 102.AskingAmps {other.AskingAmps} -> {this.AskingAmps}");
+
+                    if (this.Faults != other.Faults)
+                        lines.Add($"{Time}: 102.Faults {other.Faults} -> {this.Faults}");
+
+                    if (this.Status != other.Status)
+                        lines.Add($"{Time}: 102.Status {other.Status} -> {this.Status}");
+
+                    if (this.SocPercent != other.SocPercent)
+                        lines.Add($"{Time}: 102.SocPercent {other.SocPercent} -> {this.SocPercent}");
+                }
+
+                return lines;
+            }
             public override string ToString()
             {
-                return $"Msg:102, ChademoRawVersion:{ChademoRawVersion}, TargetVoltage:{TargetVoltage}, EstBatt:{EstBattVoltage}, AskingAmps:{AskingAmps}, Faults:{Faults}" +
+                return $"Msg:102, ChademoRawVersion:{ChademoRawVersion}, TargetVoltage:{TargetVoltage}, AskingAmps:{AskingAmps}, Faults:{Faults}" +
                     $", Status:{Status}, SocPercent:{SocPercent}";
             }
             public override bool Equals(object obj)
@@ -1228,6 +1175,35 @@ namespace CanlogParser
 
             public msg108()
             {
+            }
+
+            public List<string> ToDiffLines(msg108 other)
+            {
+                var lines = new List<string>();
+
+                if (other == null)
+                {
+                    lines.Add($"{Time}: 108.PerformWeldingDetection (null) -> {this.PerformWeldingDetection}");
+                    lines.Add($"{Time}: 108.AvailableOutputVoltage (null) -> {this.AvailableOutputVoltage}");
+                    lines.Add($"{Time}: 108.AvailableOutputCurrent (null) -> {this.AvailableOutputCurrent}");
+                    lines.Add($"{Time}: 108.ThresholdVoltage (null) -> {this.ThresholdVoltage}");
+                }
+                else
+                {
+                    if (this.PerformWeldingDetection != other.PerformWeldingDetection)
+                        lines.Add($"{Time}: 108.PerformWeldingDetection {other.PerformWeldingDetection} -> {this.PerformWeldingDetection}");
+
+                    if (this.AvailableOutputVoltage != other.AvailableOutputVoltage)
+                        lines.Add($"{Time}: 108.AvailableOutputVoltage {other.AvailableOutputVoltage} -> {this.AvailableOutputVoltage}");
+
+                    if (this.AvailableOutputCurrent != other.AvailableOutputCurrent)
+                        lines.Add($"{Time}: 108.AvailableOutputCurrent {other.AvailableOutputCurrent} -> {this.AvailableOutputCurrent}");
+
+                    if (this.ThresholdVoltage != other.ThresholdVoltage)
+                        lines.Add($"{Time}: 108.ThresholdVoltage {other.ThresholdVoltage} -> {this.ThresholdVoltage}");
+                }
+
+                return lines;
             }
 
             public override string ToString()
@@ -1291,6 +1267,47 @@ namespace CanlogParser
             {
             }
 
+            public List<string> ToDiffLines(msg109 other)
+            {
+                var lines = new List<string>();
+
+                if (other == null)
+                {
+                    lines.Add($"{Time}: 109.RemainingChargeTimeMins (null) -> {this.RemainingChargeTimeMins}");
+                    lines.Add($"{Time}: 109.DischargeCompatitible (null) -> {this.DischargeCompatitible}");
+                    lines.Add($"{Time}: 109.RemainingChargeTime10Sec (null) -> {this.RemainingChargeTime10Sec}");
+                    lines.Add($"{Time}: 109.ChademoRawVersion (null) -> {this.ChademoRawVersion}");
+                    lines.Add($"{Time}: 109.OutputCurrent (null) -> {this.OutputCurrent}");
+                    lines.Add($"{Time}: 109.OutputVoltage (null) -> {this.OutputVoltage}");
+                    lines.Add($"{Time}: 109.Status (null) -> {this.Status}");
+                }
+                else
+                {
+                    if (this.RemainingChargeTimeMins != other.RemainingChargeTimeMins)
+                        lines.Add($"{Time}: 109.RemainingChargeTimeMins {other.RemainingChargeTimeMins} -> {this.RemainingChargeTimeMins}");
+
+                    if (this.DischargeCompatitible != other.DischargeCompatitible)
+                        lines.Add($"{Time}: 109.DischargeCompatitible {other.DischargeCompatitible} -> {this.DischargeCompatitible}");
+
+                    if (this.RemainingChargeTime10Sec != other.RemainingChargeTime10Sec)
+                        lines.Add($"{Time}: 109.RemainingChargeTime10Sec {other.RemainingChargeTime10Sec} -> {this.RemainingChargeTime10Sec}");
+
+                    if (this.ChademoRawVersion != other.ChademoRawVersion)
+                        lines.Add($"{Time}: 109.ChademoRawVersion {other.ChademoRawVersion} -> {this.ChademoRawVersion}");
+
+                    if (this.OutputCurrent != other.OutputCurrent)
+                        lines.Add($"{Time}: 109.OutputCurrent {other.OutputCurrent} -> {this.OutputCurrent}");
+
+                    if (this.OutputVoltage != other.OutputVoltage)
+                        lines.Add($"{Time}: 109.OutputVoltage {other.OutputVoltage} -> {this.OutputVoltage}");
+
+                    if (this.Status != other.Status)
+                        lines.Add($"{Time}: 109.Status {other.Status} -> {this.Status}");
+                }
+
+                return lines;
+            }
+
             public override string ToString()
             {
                 return $"Msg:109, ChademoRawVersion={ChademoRawVersion}, OutputVoltage={OutputVoltage}, OutputCurrent={OutputCurrent}, Status={Status}" +
@@ -1340,6 +1357,35 @@ namespace CanlogParser
             {
             }
 
+            public List<string> ToDiffLines(msg200 other)
+            {
+                var lines = new List<string>();
+
+                if (other == null)
+                {
+                    lines.Add($"{Time}: 200.MaximumDischargeCurrentInverted (null) -> {this.MaximumDischargeCurrentInverted}");
+                    lines.Add($"{Time}: 200.MinimumDischargeVoltage (null) -> {this.MinimumDischargeVoltage}");
+                    lines.Add($"{Time}: 200.MinimumBatteryDischargeLevel (null) -> {this.MinimumBatteryDischargeLevel}");
+                    lines.Add($"{Time}: 200.MaxRemainingCapacityForCharging (null) -> {this.MaxRemainingCapacityForCharging}");
+                }
+                else
+                {
+                    if (this.MaximumDischargeCurrentInverted != other.MaximumDischargeCurrentInverted)
+                        lines.Add($"{Time}: 200.MaximumDischargeCurrentInverted {other.MaximumDischargeCurrentInverted} -> {this.MaximumDischargeCurrentInverted}");
+
+                    if (this.MinimumDischargeVoltage != other.MinimumDischargeVoltage)
+                        lines.Add($"{Time}: 200.MinimumDischargeVoltage {other.MinimumDischargeVoltage} -> {this.MinimumDischargeVoltage}");
+
+                    if (this.MinimumBatteryDischargeLevel != other.MinimumBatteryDischargeLevel)
+                        lines.Add($"{Time}: 200.MinimumBatteryDischargeLevel {other.MinimumBatteryDischargeLevel} -> {this.MinimumBatteryDischargeLevel}");
+
+                    if (this.MaxRemainingCapacityForCharging != other.MaxRemainingCapacityForCharging)
+                        lines.Add($"{Time}: 200.MaxRemainingCapacityForCharging {other.MaxRemainingCapacityForCharging} -> {this.MaxRemainingCapacityForCharging}");
+                }
+
+                return lines;
+            }
+
             public override string ToString()
             {
                 return $"Msg:200, MaximumDischargeCurrentInverted={MaximumDischargeCurrentInverted}, MinimumDischargeVoltage={MinimumDischargeVoltage}" +
@@ -1387,6 +1433,35 @@ namespace CanlogParser
 
             public msg208()
             {
+            }
+
+            public List<string> ToDiffLines(msg208 other)
+            {
+                var lines = new List<string>();
+
+                if (other == null)
+                {
+                    lines.Add($"{Time}: 208.PresentDischargeCurrentInverted (null) -> {this.PresentDischargeCurrentInverted}");
+                    lines.Add($"{Time}: 208.AvailableInputVoltage (null) -> {this.AvailableInputVoltage}");
+                    lines.Add($"{Time}: 208.AvailableInputCurrentInverted (null) -> {this.AvailableInputCurrentInverted}");
+                    lines.Add($"{Time}: 208.LowerThresholdVoltage (null) -> {this.LowerThresholdVoltage}");
+                }
+                else
+                {
+                    if (this.PresentDischargeCurrentInverted != other.PresentDischargeCurrentInverted)
+                        lines.Add($"{Time}: 208.PresentDischargeCurrentInverted {other.PresentDischargeCurrentInverted} -> {this.PresentDischargeCurrentInverted}");
+
+                    if (this.AvailableInputVoltage != other.AvailableInputVoltage)
+                        lines.Add($"{Time}: 208.AvailableInputVoltage {other.AvailableInputVoltage} -> {this.AvailableInputVoltage}");
+
+                    if (this.AvailableInputCurrentInverted != other.AvailableInputCurrentInverted)
+                        lines.Add($"{Time}: 208.AvailableInputCurrentInverted {other.AvailableInputCurrentInverted} -> {this.AvailableInputCurrentInverted}");
+
+                    if (this.LowerThresholdVoltage != other.LowerThresholdVoltage)
+                        lines.Add($"{Time}: 208.LowerThresholdVoltage {other.LowerThresholdVoltage} -> {this.LowerThresholdVoltage}");
+                }
+
+                return lines;
             }
 
             public override string ToString()
@@ -1439,6 +1514,27 @@ namespace CanlogParser
             {
             }
 
+            public List<string> ToDiffLines(msg209 other)
+            {
+                var lines = new List<string>();
+
+                if (other == null)
+                {
+                    lines.Add($"{Time}: 209.SequenceControlNumber (null) -> {this.SequenceControlNumber}");
+                    lines.Add($"{Time}: 209.RemainingDischargeTime (null) -> {this.RemainingDischargeTime}");
+                }
+                else
+                {
+                    if (this.SequenceControlNumber != other.SequenceControlNumber)
+                        lines.Add($"{Time}: 209.SequenceControlNumber {other.SequenceControlNumber} -> {this.SequenceControlNumber}");
+
+                    if (this.RemainingDischargeTime != other.RemainingDischargeTime)
+                        lines.Add($"{Time}: 209.RemainingDischargeTime {other.RemainingDischargeTime} -> {this.RemainingDischargeTime}");
+                }
+
+                return lines;
+            }
+
             public override string ToString()
             {
                 return $"Msg:209, SequenceControlNumber={SequenceControlNumber}, RemainingDischargeTime={RemainingDischargeTime}";
@@ -1452,7 +1548,13 @@ namespace CanlogParser
             }
         }
 
-        private static (int msg, byte[] data, string time) GetMessage(string line)
+        /// <summary>
+        /// Example:
+        /// " (2022-06-02 22:43:42.714008)  can1  700   [8]  01 02 00 00 06 00 00 00"
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
+        private static (int msg, byte[] data, string time) GetMessageParaTime(string line)
         {
             var msgStr = line.Substring(37, 3);
             var timeStr = line.Substring(13, 15);
@@ -1467,15 +1569,17 @@ namespace CanlogParser
 
             return (int.Parse(msgStr, NumberStyles.HexNumber, CultureInfo.InvariantCulture), bytes, timeStr);
         }
-        private static (int msg, byte[] data, string time) GetMessageCsv(string line)
+
+        /// <summary>
+        /// Example:
+        /// Time Stamp,ID,Extended,Dir,Bus,LEN,D1,D2,D3,D4,D5,D6,D7,D8
+        /// 4858169,00000102,false,Rx,0,8,01,90,01,00,00,01,00,00,
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
+        private static (int msg, byte[] data, string time) GetMessageCsv_Time_Stamp(string line)
         {
             var parts = line.Split(",");
-
-            // header
-            if (parts[0] == "Time Stamp")
-                return (0, null, null);
-
-//                3016672,00000100,false,Rx,0,8,00,00,00,00,B3,01,F0,00,
 
             byte[] bytes = new byte[8];
             for (int i = 6; i < 6 + 8; i++)
@@ -1485,7 +1589,43 @@ namespace CanlogParser
 
             return (int.Parse(parts[1], NumberStyles.HexNumber, CultureInfo.InvariantCulture), bytes, parts[0]);
         }
-        private static (int msg, byte[] data, string time) GetMessageTxt(string line)
+
+        /// <summary>
+        /// Example:
+        /// Index;System Time;Time Stamp;Channel;Direction;ID;Type;Format;Len;Data
+        /// 0;02:15,7;0x478640;ch1;ñà¨Š;108;¨ì–í™ó;?©ž•™ó;8;x| 00 00 00 00 80 01 F4 00 
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
+        private static (int msg, byte[] data, string time) GetMessageCsv_Index(string line)
+        {
+            var parts = line.Split(";");
+
+            var data = parts[9];
+
+            data = data.Replace("x|", null);
+            var dataArr = data.Split(' ').Where(s => s.Trim().Length > 0).ToArray();
+            if (dataArr.Length != 8)
+                throw new Exception("not 8 bytes");
+
+            byte[] bytes = new byte[8];
+            for (int i = 0; i < 8; i++)
+            {
+                bytes[i] = byte.Parse(parts[i], NumberStyles.HexNumber, CultureInfo.InvariantCulture);
+            }
+
+            return (int.Parse(parts[5], NumberStyles.HexNumber, CultureInfo.InvariantCulture), bytes, parts[2]);
+        }
+
+
+
+        /// <summary>
+        /// Example: 
+        /// Rcvd msgID: 0x404; 06; 6B; FF; FE; 00; 00; 00; 00  00:01:09.839
+        /// </summary>
+        /// <param name="line"></param>
+        /// <returns></returns>
+        private static (int msg, byte[] data, string time) GetMessage_Rcvd_msgID(string line)
         {
             line = line.Substring(14);
             var ts = line.Substring(line.Length - 12);
@@ -1495,12 +1635,12 @@ namespace CanlogParser
 
 
             byte[] bytes = new byte[8];
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 8; i++)
             {
                 bytes[i] = byte.Parse(parts[i + 1], NumberStyles.HexNumber, CultureInfo.InvariantCulture);
             }
 
-            return (int.Parse(parts[0], NumberStyles.HexNumber, CultureInfo.InvariantCulture), bytes, parts[0]);
+            return (int.Parse(parts[0], NumberStyles.HexNumber, CultureInfo.InvariantCulture), bytes, ts);
         }
 
 
@@ -1530,7 +1670,7 @@ namespace CanlogParser
 
             /// <summary>
             /// </summary>
-            CAR_STATUS_UNK_UNKNOWN_102_5_6 = 64,
+            CAR_STATUS_LEGACY_DYNAMIC_CONTROL = 64,
 
             CAR_STATUS_DISCHARGE_COMPATIBLE = 128, // car is V2X compatible (can deliver power to grid)
         }
