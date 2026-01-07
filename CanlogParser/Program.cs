@@ -18,15 +18,18 @@ namespace CanlogParser
         {
             Console.WriteLine("Hello, World!");
 
-            var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\v2h_startup__charge_ffrom_solar_excess_for_a_while_then_turn_on_oven_to_create_load_then_switch_off_load__then_end_session.csv");
-            //var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\av50_old.txt");
-            //var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\start.candump.txt");
-            //var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\logs.candump.txt");
-            //var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\nissan-leaf-chademo-start-stop.csv");
-            //var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\non working charger can log.csv");
-            //var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\ZE1-chademo-starting-and-charging.csv");
-            //var lines = File.ReadAllLines(@"..\..\..\..\CanLogs\2025\InstavoltBYDFail.csv");
+            var fileName = @"..\..\..\..\CanLogs\v2h_startup__charge_ffrom_solar_excess_for_a_while_then_turn_on_oven_to_create_load_then_switch_off_load__then_end_session.csv";
+            //var fileName = @"..\..\..\..\CanLogs\av50_old.txt";
+            //var fileName = @"..\..\..\..\CanLogs\start.candump.txt";
+            //var fileName = @"..\..\..\..\CanLogs\logs.candump.txt";
+            //var fileName = @"..\..\..\..\CanLogs\nissan-leaf-chademo-start-stop.csv";
+            //var fileName = @"..\..\..\..\CanLogs\non working charger can log.csv";
+            //var fileName = @"..\..\..\..\CanLogs\ZE1-chademo-starting-and-charging.csv";
+            //var fileName = @"..\..\..\..\CanLogs\2025\InstavoltBYDFail.csv";
 
+            Console.WriteLine(fileName);
+
+            var lines = File.ReadAllLines(fileName);
 
             msg100 lastmsg100 = null;
             msg101 lastmsg101 = null;
@@ -36,8 +39,6 @@ namespace CanlogParser
             msg200 lastmsg200 = null;
             msg208 lastmsg208 = null;
             msg209 lastmsg209 = null;
-
-            
 
             List<can_msg> messages = new();
 
