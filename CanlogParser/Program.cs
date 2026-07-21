@@ -53,7 +53,7 @@ namespace CanlogParser
             Console.WriteLine("Hello, World!");
 
             // charge and discharge
-            var fileName = @"..\..\..\..\CanLogs\v2h_startup__charge_ffrom_solar_excess_for_a_while_then_turn_on_oven_to_create_load_then_switch_off_load__then_end_session.csv";
+            //var fileName = @"..\..\..\..\CanLogs\v2h_startup__charge_ffrom_solar_excess_for_a_while_then_turn_on_oven_to_create_load_then_switch_off_load__then_end_session.csv";
 
             //var fileName = @"..\..\..\..\CanLogs\av50_old.txt";
             //var fileName = @"..\..\..\..\CanLogs\start.candump.txt";
@@ -65,6 +65,10 @@ namespace CanlogParser
             //var fileName = @"..\..\..\..\CanLogs\non working charger can log.csv";
             //var fileName = @"..\..\..\..\CanLogs\ZE1-chademo-starting-and-charging.csv";
             //var fileName = @"..\..\..\..\CanLogs\2025\InstavoltBYDFail.csv";
+
+            var fileName = @"..\..\..\..\CanLogs\Test2realData.csv";
+            //var fileName = @"..\..\..\..\CanLogs\2025ZombieVerter\evgo @ kildare 2.csv";
+
 
             Console.WriteLine(fileName);
 
@@ -242,6 +246,8 @@ namespace CanlogParser
                             }
                         }
                         lastmsg209 = m209;
+                        break;
+                    default:
                         break;
 
                 }
@@ -504,9 +510,9 @@ namespace CanlogParser
 
                 if (other == null)
                 {
-                    lines.Add($"{Time}: 102.ChademoRawVersion (null) -> {this.ChademoRawVersion}");
+                    lines.Add($"{Time}: 102.ProtocolNumber (null) -> {this.ChademoRawVersion}");
                     lines.Add($"{Time}: 102.TargetVoltage (null) -> {this.TargetVoltage}");
-                    lines.Add($"{Time}: 102.AskingAmps (null) -> {this.AskingAmps}");
+                    lines.Add($"{Time}: 102.RequestCurrent (null) -> {this.AskingAmps}");
                     lines.Add($"{Time}: 102.Faults (null) -> {this.Faults}");
                     lines.Add($"{Time}: 102.Status (null) -> {this.Status}");
                     lines.Add($"{Time}: 102.SocPercent (null) -> {this.SocPercent}");
@@ -520,7 +526,7 @@ namespace CanlogParser
                         lines.Add($"{Time}: 102.TargetVoltage {other.TargetVoltage} -> {this.TargetVoltage}");
 
                     if (this.AskingAmps != other.AskingAmps)
-                        lines.Add($"{Time}: 102.AskingAmps {other.AskingAmps} -> {this.AskingAmps}");
+                        lines.Add($"{Time}: 102.RequestCurrent {other.AskingAmps} -> {this.AskingAmps}");
 
                     if (this.Faults != other.Faults)
                         lines.Add($"{Time}: 102.Faults {other.Faults}: {PrintDiff(other.Faults, this.Faults)}");
@@ -539,7 +545,7 @@ namespace CanlogParser
 
             public override string ToString()
             {
-                return $"Msg:102, ChademoRawVersion:{ChademoRawVersion}, TargetVoltage:{TargetVoltage}, AskingAmps:{AskingAmps}, Faults:{Faults}" +
+                return $"Msg:102, ProtocolNumber:{ChademoRawVersion}, TargetVoltage:{TargetVoltage}, RequestCurrent:{AskingAmps}, Faults:{Faults}" +
                     $", Status:{Status}, SocPercent:{SocPercent}";
             }
             public override bool Equals(object obj)
@@ -628,7 +634,7 @@ namespace CanlogParser
 
             public override string ToString()
             {
-                return $"Msg:108, CarWeldingDetection={PerformWeldingDetection}, AvailableOutputVoltage={AvailableOutputVoltage}" +
+                return $"Msg:108, PerformWeldingDetection={PerformWeldingDetection}, AvailableOutputVoltage={AvailableOutputVoltage}" +
                     $", AvailableOutputCurrent={AvailableOutputCurrent}, ThresholdVoltage={ThresholdVoltage}";
             }
 
@@ -697,7 +703,7 @@ namespace CanlogParser
                     lines.Add($"{Time}: 109.RemainingChargeTimeMins (null) -> {this.RemainingChargeTimeMins}");
                     lines.Add($"{Time}: 109.DischargeCompatitible (null) -> {this.DischargeCompatitible}");
                     lines.Add($"{Time}: 109.RemainingChargeTime10Sec (null) -> {this.RemainingChargeTime10Sec}");
-                    lines.Add($"{Time}: 109.ChademoRawVersion (null) -> {this.ChademoRawVersion}");
+                    lines.Add($"{Time}: 109.ProtocolNumber (null) -> {this.ChademoRawVersion}");
                     lines.Add($"{Time}: 109.OutputCurrent (null) -> {this.OutputCurrent}");
                     lines.Add($"{Time}: 109.OutputVoltage (null) -> {this.OutputVoltage}");
                     lines.Add($"{Time}: 109.Status (null) -> {this.Status}");
@@ -714,7 +720,7 @@ namespace CanlogParser
                         lines.Add($"{Time}: 109.RemainingChargeTime10Sec {other.RemainingChargeTime10Sec} -> {this.RemainingChargeTime10Sec}");
 
                     if (this.ChademoRawVersion != other.ChademoRawVersion)
-                        lines.Add($"{Time}: 109.ChademoRawVersion {other.ChademoRawVersion} -> {this.ChademoRawVersion}");
+                        lines.Add($"{Time}: 109.ProtocolNumber {other.ChademoRawVersion} -> {this.ChademoRawVersion}");
 
                     if (this.OutputCurrent != other.OutputCurrent)
                         lines.Add($"{Time}: 109.OutputCurrent {other.OutputCurrent} -> {this.OutputCurrent}");
@@ -731,7 +737,7 @@ namespace CanlogParser
 
             public override string ToString()
             {
-                return $"Msg:109, ChademoRawVersion={ChademoRawVersion}, OutputVoltage={OutputVoltage}, OutputCurrent={OutputCurrent}, Status={Status}" +
+                return $"Msg:109, ProtocolNumber={ChademoRawVersion}, OutputVoltage={OutputVoltage}, OutputCurrent={OutputCurrent}, Status={Status}" +
                     $", RemainingChargeTime10Sec={RemainingChargeTime10Sec}, RemainingChargeTimeMins={RemainingChargeTimeMins}, DischargeCompatible:{DischargeCompatitible}";
             }
 
@@ -944,13 +950,13 @@ namespace CanlogParser
 
                 if (other == null)
                 {
-                    lines.Add($"{Time}: 209.SequenceControlNumber (null) -> {this.SequenceControlNumber}");
+                    lines.Add($"{Time}: 209.ProtocolNumber (null) -> {this.SequenceControlNumber}");
                     lines.Add($"{Time}: 209.RemainingDischargeTime (null) -> {this.RemainingDischargeTime}");
                 }
                 else
                 {
                     if (this.SequenceControlNumber != other.SequenceControlNumber)
-                        lines.Add($"{Time}: 209.SequenceControlNumber {other.SequenceControlNumber} -> {this.SequenceControlNumber}");
+                        lines.Add($"{Time}: 209.ProtocolNumber {other.SequenceControlNumber} -> {this.SequenceControlNumber}");
 
                     if (this.RemainingDischargeTime != other.RemainingDischargeTime)
                         lines.Add($"{Time}: 209.RemainingDischargeTime {other.RemainingDischargeTime} -> {this.RemainingDischargeTime}");
@@ -961,7 +967,7 @@ namespace CanlogParser
 
             public override string ToString()
             {
-                return $"Msg:209, SequenceControlNumber={SequenceControlNumber}, RemainingDischargeTime={RemainingDischargeTime}";
+                return $"Msg:209, ProtocolNumber={SequenceControlNumber}, RemainingDischargeTime={RemainingDischargeTime}";
             }
 
             public override bool Equals(object obj)
@@ -1113,10 +1119,10 @@ namespace CanlogParser
             /// </summary>
             CHARGER_STATUS_CHARGING = 1, // 0: standby 1: charging (power transfer from charger)
 
-            CHARGER_STATUS_ERROR = 2, // something went wrong (fault caused by (or inside) the charger)
-            CHARGER_STATUS_PLUG_LOCKED = 4, // connector is currently locked (electromagnetic lock, plug locked into the car)
-            CHARGER_STATUS_INCOMPAT = 8,// parameters between vehicle and charger not compatible (battery incompatible?)
-            CHARGER_STATUS_CAR_ERROR = 16, // problem with the car, such as improper connection (or something wrong with the battery?)
+            CHARGER_STATUS_CHARGER_ERROR = 2, // something went wrong (fault caused by (or inside) the charger)
+            CHARGER_STATUS_ENERGIZING = 4, // connector is currently locked (electromagnetic lock, plug locked into the car)
+            CHARGER_STATUS_INCOMPATIBLE = 8,// parameters between vehicle and charger not compatible (battery incompatible?)
+            CHARGER_STATUS_SYSTEM_ERROR = 16, // problem with the car, such as improper connection (or something wrong with the battery?)
             CHARGER_STATUS_STOPPED = 32, //charger is stopped (charger shutdown or end of charging). this is also initially set to stop, before charging.
         }
 

@@ -15,3 +15,6 @@ start.candump.txt
 https://raw.githubusercontent.com/damienmaguire/LeafLogs/refs/heads/master/Chademo/av50_old.txt
 
 https://raw.githubusercontent.com/dalathegreat/EV-CANlogs/refs/heads/main/Nissan%20LEAF/V2X/v2h_startup__charge_ffrom_solar_excess_for_a_while_then_turn_on_oven_to_create_load_then_switch_off_load__then_end_session.csv
+
+https://openinverter.org/forum/viewtopic.php?p=93016#p93016
+Test2realData.csv
