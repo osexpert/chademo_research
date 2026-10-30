@@ -20,43 +20,37 @@ namespace CanlogParser
 
             float halfRange = maxVolt - nomVolt; // pack is symmetric around nomVolt
 
-            float volt20 = nomVolt - 0.35f * halfRange;  // delta 20-50
-            float volt80 = nomVolt + 0.55f * halfRange;  // delta 50-80
-
-            //   float voltLow0 = nomVolt - 2.10f * halfRange;    // 338, extrapolated, no measurement below 7%
-            float voltLow0 = nomVolt - 2.56f * halfRange;   // 328, assumed like ZE1 at 0%
-
-            float voltLow12 = nomVolt - 1.00f * halfRange;   // 360, knee: steep rise ends
-            float voltMid0 = nomVolt - 1.455f * halfRange;   // 350.9, extended line for 12-29%
+            float volt0 = nomVolt - 2.56f * halfRange;     // 328
+            float volt12 = nomVolt - 1.00f * halfRange;    // 360, knee: steep rise ends
+            float volt37 = nomVolt - 0.1517f * halfRange;  // 377, knee: steep rise ends, plateau starts
+            float volt80 = nomVolt + 0.55f * halfRange;    // delta 50-80
 
             if (soc < 12.0f)
             {
-                float lowFraction = soc / 12.0f;
-                return voltLow0 + lowFraction * (voltLow12 - voltLow0);
+                float fraction = soc / 12.0f;
+                return volt0 + fraction * (volt12 - volt0);
             }
-            else if (soc < 29.0f)
+            else if (soc < 37.0f)
             {
-                float midFraction = soc / 29.0f;
-                return voltMid0 + midFraction * (volt20 - voltMid0);
+                float fraction = (soc - 12.0f) / 25.0f;
+                return volt12 + fraction * (volt37 - volt12);
             }
             else if (soc < 50.0f)
             {
-                return volt20 + ((soc - 20.0f) / 30.0f) * (nomVolt - volt20);
+                float fraction = (soc - 37.0f) / 13.0f;
+                return volt37 + fraction * (nomVolt - volt37);
             }
             else if (soc < 80.0f)
             {
-                return nomVolt + ((soc - 50.0f) / 30.0f) * (volt80 - nomVolt);
+                float fraction = (soc - 50.0f) / 30.0f;
+                return nomVolt + fraction * (volt80 - nomVolt);
             }
             else
             {
-                return volt80 + ((soc - 80.0f) / 20.0f) * (maxVolt - volt80);
+                float fraction = (soc - 80.0f) / 20.0f;
+                return volt80 + fraction * (maxVolt - volt80);
             }
         }
-
-
-
-
-
 
         static float GetEstimatedBatteryVoltageV5_core(float target, float soc, float nomVolt = 0)
         {
@@ -77,15 +71,18 @@ namespace CanlogParser
 
             if (soc < 50.0f)
             {
-                return volt20 + ((soc - 20.0f) / 30.0f) * (nomVolt - volt20);
+                float fraction = (soc - 20.0f) / 30.0f;
+                return volt20 + fraction * (nomVolt - volt20);
             }
             else if (soc < 80.0f)
             {
-                return nomVolt + ((soc - 50.0f) / 30.0f) * (volt80 - nomVolt);
+                float fraction = (soc - 50.0f) / 30.0f;
+                return nomVolt + fraction * (volt80 - nomVolt);
             }
             else
             {
-                return volt80 + ((soc - 80.0f) / 20.0f) * (maxVolt - volt80);
+                float fraction = (soc - 80.0f) / 20.0f;
+                return volt80 + fraction * (maxVolt - volt80);
             }
         }
 
@@ -113,11 +110,8 @@ namespace CanlogParser
             var nom = GetNomVoltOverridev5(target, af);
             if (af == 1)
                 return GetEstimatedBatteryVoltageV5_ze0(target, soc, nom);
-            //return GetEstimatedBatteryVoltageV5_ze0(target, soc, nom);
             else
                  return GetEstimatedBatteryVoltageV5_core(target, soc, nom);
-            
-            //return GetEstimatedBatteryVoltageV5_core(target, soc, nom);
         }
 
         public static void entry(string[] args)
@@ -130,9 +124,6 @@ namespace CanlogParser
             for (int x = 0; x <= 100; x += 1)
             {
                 var target = 410;
-
-                               
-                
                 
                 var v5g_af0 = GetEstimatedBatteryVoltageV5(target, x, 0);
                 var v5g_af1 = GetEstimatedBatteryVoltageV5(target, x, 1);
